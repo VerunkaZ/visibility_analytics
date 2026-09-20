@@ -1,2 +1,2 @@
-# Visibility use case
-### Use case for marketing analytics 
+# Visibility Use Case for Marketing Analytics
+## Power BI 
