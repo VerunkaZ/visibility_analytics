@@ -91,7 +91,7 @@ table Weekly
 				    Month = Number.FromText(Parts{1}),
 				    EndDate = #date(2026, Month, Day)
 				in
-				    Date.AddDays(EndDate, -7)),
+				    Date.AddDays(EndDate, -6)),
 				    #"Renamed Columns1" = Table.RenameColumns(#"Added Custom",{{"Custom", "Week Start Date"}}),
 				    #"Changed Type1" = Table.TransformColumnTypes(#"Renamed Columns1",{{"Week Start Date", type date}, {"Value", type number}})
 				in

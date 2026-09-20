@@ -115,7 +115,7 @@ table 'Dim Date'
 				    AddWeekStart = Table.AddColumn(
 				        AddMonthStart,
 				        "Week Start Date",
-				        each Date.StartOfWeek([Date], Day.Sunday),
+				        each Date.StartOfWeek([Date], Day.Monday),
 				        type date
 				    )
 				in
