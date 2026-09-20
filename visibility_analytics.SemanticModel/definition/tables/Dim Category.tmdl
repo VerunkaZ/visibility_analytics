@@ -1,0 +1,25 @@
+table 'Dim Category'
+	lineageTag: 27749523-e48d-4e01-a2bb-43e121fa1326
+
+	column Category
+		dataType: string
+		lineageTag: bc592a4f-3555-4c5a-aee9-6ca0d1c6107e
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Dim Category' = m
+		mode: import
+		source =
+				let
+				    Source = Monthly,
+				    #"Removed Columns" = Table.RemoveColumns(Source,{"Metric", "Value type", "Data Source", "Traffic Source", "Month Label", "Value", "Month Start Date"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Columns")
+				in
+				    #"Removed Duplicates"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

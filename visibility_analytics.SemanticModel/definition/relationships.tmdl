@@ -1,0 +1,24 @@
+relationship AutoDetected_94333a90-984a-4afc-9edc-545e720e11c2
+	fromColumn: Monthly.Category
+	toColumn: 'Dim Category'.Category
+
+relationship AutoDetected_791a757d-b8fd-467a-9de0-712b668b7eb8
+	fromColumn: Weekly.Category
+	toColumn: 'Dim Category'.Category
+
+relationship AutoDetected_f09a3ff3-ce9e-48c7-a887-aea423852720
+	fromColumn: Monthly.Metric
+	toColumn: 'Dim Metric'.Metric
+
+relationship AutoDetected_17d80a3f-4a25-41aa-80b6-22077f3ebf0f
+	fromColumn: Weekly.Metric
+	toColumn: 'Dim Metric'.Metric
+
+relationship ec196f0e-7b83-2af4-3cf3-9b283fa92f8d
+	fromColumn: Monthly.'Month Start Date'
+	toColumn: 'Dim Date'.Date
+
+relationship ff7348e5-e9a3-caf5-16af-173b16ead71f
+	fromColumn: Weekly.'Week Start Date'
+	toColumn: 'Dim Date'.Date
+

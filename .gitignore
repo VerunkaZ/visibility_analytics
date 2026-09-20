@@ -1,0 +1,14 @@
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+
+# Binary Power BI files - PBIP/TMDL is the Git source of truth
+*.pbix
+*.pbit
+
+# Local/private exports
+private-data/
+exports/
+
+# Operating-system files
+.DS_Store
+Thumbs.db

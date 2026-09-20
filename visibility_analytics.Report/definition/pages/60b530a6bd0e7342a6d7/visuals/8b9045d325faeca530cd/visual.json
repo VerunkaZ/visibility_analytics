@@ -1,0 +1,252 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "8b9045d325faeca530cd",
+  "position": {
+    "x": 16.612021857923498,
+    "y": 375.95628415300547,
+    "z": 1,
+    "height": 703.82513661202188,
+    "width": 1810.7103825136612,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Weekly"
+                    }
+                  },
+                  "Property": "Week Label"
+                }
+              },
+              "queryRef": "Weekly.Week Label",
+              "nativeQueryRef": "Week Label"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Weekly Digital Cost per TD Lead"
+                }
+              },
+              "queryRef": "_Measures.Weekly Digital Cost per TD Lead",
+              "nativeQueryRef": "Weekly Digital Cost per TD Lead"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Weekly Digital TD Leads"
+                }
+              },
+              "queryRef": "_Measures.Weekly Digital TD Leads",
+              "nativeQueryRef": "Weekly Digital TD Leads"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Weekly Digital TD Media Cost"
+                }
+              },
+              "queryRef": "_Measures.Weekly Digital TD Media Cost",
+              "nativeQueryRef": "Weekly Digital TD Media Cost"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Weekly Media Cost"
+                }
+              },
+              "queryRef": "_Measures.Weekly Media Cost",
+              "nativeQueryRef": "Weekly Media Cost"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Weekly Test Drive Leads"
+                }
+              },
+              "queryRef": "_Measures.Weekly Test Drive Leads",
+              "nativeQueryRef": "Weekly Test Drive Leads"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Weekly Sales Leads"
+                }
+              },
+              "queryRef": "_Measures.Weekly Sales Leads",
+              "nativeQueryRef": "Weekly Sales Leads"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Weekly Website Sessions"
+                }
+              },
+              "queryRef": "_Measures.Weekly Website Sessions",
+              "nativeQueryRef": "Weekly Website Sessions"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "e89fca584cc14718d896",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Weekly Digital TD Leads"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "3200321f7043ea6d13d7",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Weekly Digital TD Media Cost"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d4e702cb1313fcf2de46",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Weekly Media Cost"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7ce1f0192be33728184c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Weekly Test Drive Leads"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "0da4cf8c018b613b09dd",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Weekly Sales Leads"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "731ec58748fcaa549884",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Weekly Website Sessions"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "cb7a497520c78d972e2c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Weekly"
+              }
+            },
+            "Property": "Week Label"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "5e97847a525f15ec286f",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Weekly Digital Cost per TD Lead"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

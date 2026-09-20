@@ -1,0 +1,103 @@
+table Weekly
+	lineageTag: 1ce692e1-fd89-49c2-bd34-2f53db7dc379
+
+	column Category
+		dataType: string
+		lineageTag: 3262e488-bac9-44f7-863a-9cca68dd0d78
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column Metric
+		dataType: string
+		lineageTag: 6549072a-e5ea-4a7e-9c87-939240c7856a
+		summarizeBy: none
+		sourceColumn: Metric
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Value type'
+		dataType: string
+		lineageTag: 642eee3a-ccdd-4b46-891a-2800261fc0b9
+		summarizeBy: none
+		sourceColumn: Value type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data Source'
+		dataType: string
+		lineageTag: 341d8d95-6871-491d-be67-dc4e0c228725
+		summarizeBy: none
+		sourceColumn: Data Source
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Traffic Source'
+		dataType: string
+		lineageTag: 37ce6f5e-48fe-4771-aafc-0ec693b20955
+		summarizeBy: none
+		sourceColumn: Traffic Source
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Week Label'
+		dataType: string
+		lineageTag: c458f612-d3e8-4fb1-87a9-23fd9d9ef679
+		summarizeBy: none
+		sourceColumn: Week Label
+
+		annotation SummarizationSetBy = Automatic
+
+	column Value
+		dataType: double
+		lineageTag: 39e228ab-a31f-4799-8569-c5a533ea7795
+		summarizeBy: sum
+		sourceColumn: Value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Week Start Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a5bc910e-e554-4cc6-9b8e-86602401710e
+		summarizeBy: none
+		sourceColumn: Week Start Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition Weekly = m
+		mode: import
+		source =
+				let
+				  Source = Excel.Workbook(File.Contents("C:\Power BI Data\Visibility_data.xlsx"), null, true),
+				  #"Navigation 1" = Source{[Item = "Weekly", Kind = "Sheet"]}[Data],
+				  #"Changed column type" = Table.TransformColumnTypes(#"Navigation 1", {{"Column1", type text}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}, {"Column5", type text}}, "en-US"),
+				    #"Removed Top Rows" = Table.Skip(#"Changed column type",2),
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Removed Top Rows", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Category", type text}, {"Metric", type text}, {"Value type", type text}, {"Data Source", type text}, {"Traffic Source", type text}, {"13.-19.7.", type any}, {"20.-26.7.", type any}, {"27.7.-2.8.", type any}, {"3.-9.8.", type any}}),
+				    #"Removed Blank Rows" = Table.SelectRows(#"Changed Type", each not List.IsEmpty(List.RemoveMatchingItems(Record.FieldValues(_), {"", null}))),
+				    #"Removed Top Rows1" = Table.Skip(#"Removed Blank Rows",2),
+				    #"Unpivoted Other Columns" = Table.UnpivotOtherColumns(#"Removed Top Rows1", {"Category", "Metric", "Value type", "Data Source", "Traffic Source"}, "Attribute", "Value"),
+				    #"Renamed Columns" = Table.RenameColumns(#"Unpivoted Other Columns",{{"Attribute", "Week Label"}}),
+				    #"Added Custom" = Table.AddColumn(#"Renamed Columns", "Custom", each let
+				    EndDateText = Text.Trim(Text.AfterDelimiter([Week Label], "-")),
+				    Parts = Text.Split(EndDateText, "."),
+				    Day = Number.FromText(Parts{0}),
+				    Month = Number.FromText(Parts{1}),
+				    EndDate = #date(2026, Month, Day)
+				in
+				    Date.AddDays(EndDate, -7)),
+				    #"Renamed Columns1" = Table.RenameColumns(#"Added Custom",{{"Custom", "Week Start Date"}}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Renamed Columns1",{{"Week Start Date", type date}, {"Value", type number}})
+				in
+				  #"Changed Type1"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

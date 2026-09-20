@@ -1,0 +1,96 @@
+table Monthly
+	lineageTag: 8bc89196-1d0e-4a50-8431-4edaf913da92
+
+	column Category
+		dataType: string
+		lineageTag: dcaefe5a-f398-40d7-9071-4c727beca67a
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column Metric
+		dataType: string
+		lineageTag: 640cb728-fac6-4e07-97e1-b2642b94ea59
+		summarizeBy: none
+		sourceColumn: Metric
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Value type'
+		dataType: string
+		lineageTag: dc11e3f4-d7c3-43ce-ac48-8cce28da09dc
+		summarizeBy: none
+		sourceColumn: Value type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data Source'
+		dataType: string
+		lineageTag: 8a16a7d5-a6bc-4879-bcd8-e3a3fd34d6ba
+		summarizeBy: none
+		sourceColumn: Data Source
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Traffic Source'
+		dataType: string
+		lineageTag: fae9c0ac-268b-436b-8eb9-6c99ae05ef15
+		summarizeBy: none
+		sourceColumn: Traffic Source
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Label'
+		dataType: string
+		lineageTag: c3fbafe8-e102-4e28-b611-583afc4a88c8
+		summarizeBy: none
+		sourceColumn: Month Label
+
+		annotation SummarizationSetBy = Automatic
+
+	column Value
+		dataType: double
+		lineageTag: 7dfb57a1-5f84-4e06-b1cb-c9f158346db8
+		summarizeBy: sum
+		sourceColumn: Value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Month Start Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5c72852b-22e3-4318-a597-6df651310391
+		summarizeBy: none
+		sourceColumn: Month Start Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition Monthly = m
+		mode: import
+		source =
+				let
+				  Source = Excel.Workbook(File.Contents("C:\Power BI Data\Visibility_data.xlsx"), null, true),
+				  #"Navigation 1" = Source{[Item = "Monthly", Kind = "Sheet"]}[Data],
+				    #"Removed Top Rows" = Table.Skip(#"Navigation 1",1),
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Removed Top Rows", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Category", type text}, {"Metric", type text}, {"Value type", type text}, {"Data Source", type text}, {"Traffic Source", type text}, {"2026|01", type any}, {"2026|02", type any}, {"2026|03", type any}, {"2026|04", type any}, {"2026|05", type any}, {"2026|06", type any}, {"2026|07", type any}, {"Column13", type any}, {"Column14", type any}, {"Column15", type any}, {"Column16", type any}, {"Column17", type any}}),
+				    #"Removed Blank Rows" = Table.SelectRows(#"Changed Type", each not List.IsEmpty(List.RemoveMatchingItems(Record.FieldValues(_), {"", null}))),
+				    #"Removed Top Rows1" = Table.Skip(#"Removed Blank Rows",2),
+				    #"Unpivoted Other Columns" = Table.UnpivotOtherColumns(#"Removed Top Rows1", {"Traffic Source", "Data Source", "Value type", "Metric", "Category"}, "Attribute", "Value"),
+				    #"Renamed Columns" = Table.RenameColumns(#"Unpivoted Other Columns",{{"Attribute", "Month Label"}}),
+				    #"Added Custom" = Table.AddColumn(#"Renamed Columns", "Month Start Date", each Date.FromText(Text.Replace([Month Label], "|", "-") & "-01")),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Added Custom",{{"Month Start Date", type date}, {"Value", type number}}),
+				    #"Changed Type with Locale" = Table.TransformColumnTypes(#"Changed Type1", {{"Value", type number}}, "cs-CZ"),
+				    #"Replaced Errors" = Table.ReplaceErrorValues(#"Changed Type with Locale", {{"Value", null}})
+				in
+				    #"Replaced Errors"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

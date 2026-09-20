@@ -1,0 +1,140 @@
+table _Measures
+	lineageTag: 83f00501-b035-4bed-8e9f-ec4f5be23ed9
+
+	measure 'Monthly Value' =
+			
+			SUM ( Monthly[Value] )
+		formatString: 0
+		lineageTag: 5b42314f-9eae-4525-8924-288e724b910f
+
+	measure 'Weekly Value' =
+			
+			SUM ( Weekly[Value] )
+		formatString: 0
+		lineageTag: f2ed0b0a-fccf-4b47-9e21-111b29808e8c
+
+	measure 'Monthly Media Cost' =
+			
+			CALCULATE ([Monthly Value], 'Dim Metric'[Metric] = "Media Cost")
+		formatString: 0
+		lineageTag: 88e1ff42-dd8d-4b18-bd37-21a94aee9f6c
+
+	measure 'Monthly Website Sessions' =
+			
+			CALCULATE ([Monthly Value], 'Dim Metric'[Metric] = "Website Sessions")
+		formatString: 0
+		lineageTag: e23e663e-05f0-4900-a62d-136f17c871f6
+
+	measure 'Monthly Test Drive Leads' =
+			
+			CALCULATE ( [Monthly Value], 'Dim Metric'[Metric] = "Test Drive Leads" )
+		formatString: 0
+		lineageTag: ae65c5c3-46ea-4ffd-91ce-8e019ff179f7
+
+	measure 'Monthly Sales Leads' =
+			
+			CALCULATE ( [Monthly Value], 'Dim Metric'[Metric] = "Sales Leads" )
+		formatString: 0
+		lineageTag: db9e2d4b-8c6b-4d9a-98a4-d01ee8619e53
+
+	measure 'Monthly Digital Cost per TD Lead' =
+			
+			DIVIDE([Monthly Digital TD Media Cost], [Monthly Digital TD Leads])
+		formatString: 0
+		lineageTag: 87ebb1d6-5747-49eb-ae29-78e28c62b455
+
+	measure 'Monthly Digital TD Media Cost' =
+			
+			CALCULATE([Monthly Value], 'Dim Category'[Category] = "Digital Test Drive", 'Dim Metric'[Metric] = "Media Cost")
+		lineageTag: 1818089e-92e0-48c5-a7b3-7bc2263a88f2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Monthly Digital TD Leads' =
+			
+			CALCULATE([Monthly Value], 'Dim Category'[Category] = "Digital Test Drive", 'Dim Metric'[Metric] = "Test Drive Leads")
+		lineageTag: 58433fd6-019b-49bd-a95b-10ea667aa93c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Weekly Media Cost' = ```
+			
+			CALCULATE ( [Weekly Value], 'Dim Metric'[Metric] = "Media Cost" )
+			
+			```
+		lineageTag: d57bc90f-3f69-4768-8888-443121571306
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Weekly Website Sessions' =
+			
+			CALCULATE ( [Weekly Value], 'Dim Metric'[Metric] = "Website Sessions" )
+		lineageTag: 0a08e09e-fb78-401c-8f76-e67064c28f2b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Weekly Digital TD Leads' = ```
+			
+			CALCULATE ( [Weekly Value], 'Dim Category'[Category] = "Digital Test Drive", 'Dim Metric'[Metric] = "Test Drive Leads" )
+			
+			```
+		lineageTag: f3e9a740-32b5-4512-94c5-5dd4a6996af4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Weekly Sales Leads' = ```
+			
+			CALCULATE ( [Weekly Value], 'Dim Metric'[Metric] = "Sales Leads" )
+			
+			```
+		lineageTag: f96a8517-b32c-4990-8118-e6198afbbf8b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Weekly Digital TD Media Cost' =
+			
+			CALCULATE ( [Weekly Value], 'Dim Category'[Category] = "Digital Test Drive", 'Dim Metric'[Metric] = "Media Cost" )
+		lineageTag: ee237c33-8969-4381-97c9-6945e56fc768
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Weekly Digital Cost per TD Lead' =
+			
+			DIVIDE ( [Weekly Digital TD Media Cost], [Weekly Digital TD Leads] )
+		lineageTag: a7d8c7a6-3bca-40a2-9cfc-a4c1b4f24b0b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Weekly Test Drive Leads' =
+			
+			CALCULATE ( [Weekly Value], 'Dim Metric'[Metric] = "Test Drive Leads" )
+		lineageTag: f04d9778-309b-4b21-888d-4f23c2c0d7a1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Placeholder
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: be4adbe0-d498-4c11-9aa0-64ad844620f4
+		summarizeBy: sum
+		sourceColumn: Placeholder
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Measures = m
+		mode: import
+		source =
+				let
+				  Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMlSKjQUA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Dummy = _t]),
+				  #"Changed column type" = Table.TransformColumnTypes(Source, {{"Dummy", Int64.Type}}, "en-US"),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed column type",{{"Dummy", "Placeholder"}})
+				in
+				  #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

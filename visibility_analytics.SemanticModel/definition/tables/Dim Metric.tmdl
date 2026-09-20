@@ -1,0 +1,26 @@
+table 'Dim Metric'
+	lineageTag: 6385db35-6b75-4f12-bd55-96ca399ec455
+
+	column Metric
+		dataType: string
+		lineageTag: c3d548e0-0c0a-4dce-af76-3be4606662be
+		summarizeBy: none
+		sourceColumn: Metric
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Dim Metric' = m
+		mode: import
+		source =
+				let
+				    Source = Monthly,
+				    #"Reordered Columns" = Table.ReorderColumns(Source,{"Metric", "Category", "Value type", "Data Source", "Traffic Source", "Month Label", "Value", "Month Start Date"}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Reordered Columns",{"Category", "Value type", "Data Source", "Traffic Source", "Month Label", "Value", "Month Start Date"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Columns")
+				in
+				    #"Removed Duplicates"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

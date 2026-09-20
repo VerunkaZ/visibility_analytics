@@ -1,0 +1,127 @@
+table 'Dim Date'
+	lineageTag: 6b23ebc1-4c3a-4f6a-83bc-5cf9f012ed18
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 48c52e9d-e7da-49b5-b424-fa6dacca2d38
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 239cb13b-e24a-40bb-ae3d-72e52d7f670b
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: ba815ce2-4b34-4ef9-8b0b-9ccef123d9ad
+		summarizeBy: sum
+		sourceColumn: Month Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: string
+		lineageTag: 4e8a073b-98ed-4de2-a38b-2113a4dc4900
+		summarizeBy: none
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Start Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 494871cd-feff-4b82-b36c-1eb91d80e990
+		summarizeBy: none
+		sourceColumn: Month Start Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Week Start Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b07cbab0-deb4-4734-834e-d22e57f127d7
+		summarizeBy: none
+		sourceColumn: Week Start Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition 'Dim Date' = m
+		mode: import
+		source =
+				let
+				    StartDate = #date(2026, 1, 1),
+				    EndDate = #date(2026, 12, 31),
+				
+				    DateList = List.Dates(
+				        StartDate,
+				        Duration.Days(EndDate - StartDate) + 1,
+				        #duration(1, 0, 0, 0)
+				    ),
+				
+				    ToTable = Table.FromList(
+				        DateList,
+				        Splitter.SplitByNothing(),
+				        {"Date"}
+				    ),
+				
+				    ChangedType = Table.TransformColumnTypes(
+				        ToTable,
+				        {{"Date", type date}}
+				    ),
+				
+				    AddYear = Table.AddColumn(
+				        ChangedType,
+				        "Year",
+				        each Date.Year([Date]),
+				        Int64.Type
+				    ),
+				
+				    AddMonthNumber = Table.AddColumn(
+				        AddYear,
+				        "Month Number",
+				        each Date.Month([Date]),
+				        Int64.Type
+				    ),
+				
+				    AddMonthName = Table.AddColumn(
+				        AddMonthNumber,
+				        "Month",
+				        each Date.ToText([Date], "MMMM", "en-US"),
+				        type text
+				    ),
+				
+				    AddMonthStart = Table.AddColumn(
+				        AddMonthName,
+				        "Month Start Date",
+				        each Date.StartOfMonth([Date]),
+				        type date
+				    ),
+				
+				    AddWeekStart = Table.AddColumn(
+				        AddMonthStart,
+				        "Week Start Date",
+				        each Date.StartOfWeek([Date], Day.Sunday),
+				        type date
+				    )
+				in
+				    AddWeekStart
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
