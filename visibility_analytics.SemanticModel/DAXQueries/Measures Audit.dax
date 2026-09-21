@@ -1,0 +1,12 @@
+EVALUATE
+SELECTCOLUMNS(
+    FILTER(
+        INFO.VIEW.MEASURES(),
+        [Table] = "_Measures"
+    ),
+    "Measure", [Name],
+    "DAX Formula", [Expression],
+    "Format", [FormatString],
+    "State", [State]
+)
+ORDER BY [Measure]
