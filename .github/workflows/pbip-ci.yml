@@ -1,0 +1,234 @@
+name: PBIP CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pbip-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate PBIP repository
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check forbidden tracked files
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          forbidden="$(
+            git ls-files |
+            grep -Ei \
+              '(^|/)(cache\.abf|localSettings\.json)$|\.pbix$|\.pbit$|(^|/)(private-data|exports)/' \
+              || true
+          )"
+
+          if [[ -n "$forbidden" ]]; then
+            echo "::error::Forbidden files are tracked:"
+            echo "$forbidden"
+            exit 1
+          fi
+
+          echo "No forbidden Power BI or private files are tracked."
+
+      - name: Validate JSON-based files
+        shell: python
+        run: |
+          import json
+          import subprocess
+          import sys
+          from pathlib import Path
+
+          tracked = subprocess.check_output(
+              ["git", "ls-files"], text=True
+          ).splitlines()
+
+          candidates = [
+              Path(path)
+              for path in tracked
+              if Path(path).suffix.lower()
+              in {".json", ".pbip", ".pbir", ".pbism"}
+              or Path(path).name == ".platform"
+          ]
+
+          failures = []
+
+          for path in candidates:
+              try:
+                  with path.open("r", encoding="utf-8-sig") as file:
+                      json.load(file)
+                  print(f"OK: {path}")
+              except Exception as exc:
+                  failures.append(f"{path}: {exc}")
+
+          if failures:
+              print("Invalid JSON-based files:", file=sys.stderr)
+              for failure in failures:
+                  print(f"- {failure}", file=sys.stderr)
+              sys.exit(1)
+
+          print(f"Validated {len(candidates)} JSON-based files.")
+
+      - name: Validate PBIP references and required files
+        shell: python
+        run: |
+          import json
+          import sys
+          from pathlib import Path
+
+          root = Path.cwd().resolve()
+          pbip_files = list(root.glob("*.pbip"))
+
+          if len(pbip_files) != 1:
+              sys.exit(
+                  f"Expected exactly one root PBIP file, found {len(pbip_files)}."
+              )
+
+          pbip_path = pbip_files[0]
+
+          with pbip_path.open("r", encoding="utf-8-sig") as file:
+              pbip = json.load(file)
+
+          artifacts = pbip.get("artifacts", [])
+
+          if not artifacts:
+              sys.exit("PBIP file does not contain an artifacts collection.")
+
+          try:
+              report_relative = artifacts[0]["report"]["path"]
+          except (KeyError, IndexError, TypeError):
+              sys.exit("PBIP report path is missing or invalid.")
+
+          report_path = (root / report_relative).resolve()
+
+          if not report_path.is_dir():
+              sys.exit(f"Referenced report folder does not exist: {report_path}")
+
+          pbir_path = report_path / "definition.pbir"
+
+          if not pbir_path.is_file():
+              sys.exit(f"Report definition is missing: {pbir_path}")
+
+          with pbir_path.open("r", encoding="utf-8-sig") as file:
+              pbir = json.load(file)
+
+          try:
+              model_relative = pbir["datasetReference"]["byPath"]["path"]
+          except (KeyError, TypeError):
+              sys.exit("PBIR datasetReference.byPath.path is missing.")
+
+          model_path = (report_path / model_relative).resolve()
+
+          if root not in model_path.parents and model_path != root:
+              sys.exit("Semantic-model reference points outside the repository.")
+
+          required_paths = [
+              model_path,
+              model_path / "definition.pbism",
+              model_path / "definition" / "model.tmdl",
+              model_path / "definition" / "relationships.tmdl",
+              model_path / "definition" / "tables",
+              report_path / "definition" / "report.json",
+              report_path / "definition" / "pages" / "pages.json",
+          ]
+
+          missing = [str(path) for path in required_paths if not path.exists()]
+
+          if missing:
+              print("Required PBIP artifacts are missing:", file=sys.stderr)
+              for path in missing:
+                  print(f"- {path}", file=sys.stderr)
+              sys.exit(1)
+
+          print(f"PBIP: {pbip_path.name}")
+          print(f"Report: {report_path.relative_to(root)}")
+          print(f"Semantic model: {model_path.relative_to(root)}")
+          print("PBIP references and required artifacts are valid.")
+
+      - name: Scan tracked files for obvious secrets
+        shell: python
+        run: |
+          import re
+          import subprocess
+          import sys
+          from pathlib import Path
+
+          tracked = subprocess.check_output(
+              ["git", "ls-files"], text=True
+          ).splitlines()
+
+          patterns = {
+              "Notion token": re.compile(
+                  r"ntn_[A-Za-z0-9_-]{20,}"
+              ),
+              "GitHub token": re.compile(
+                  r"gh[pousr]_[A-Za-z0-9]{20,}"
+              ),
+              "AWS access key": re.compile(
+                  r"AKIA[0-9A-Z]{16}"
+              ),
+              "Private key": re.compile(
+                  r"-----BEGIN [A-Z ]*PRIVATE KEY-----"
+              ),
+              "Assigned secret": re.compile(
+                  r"""(?ix)
+                  \b(
+                    api[_-]?key |
+                    client[_-]?secret |
+                    password |
+                    access[_-]?token
+                  )\b
+                  \s*[:=]\s*
+                  ["']?[A-Za-z0-9_./+=-]{12,}
+                  """
+              ),
+          }
+
+          skipped = {
+              ".github/workflows/pbip-ci.yml",
+          }
+
+          findings = []
+
+          for relative_path in tracked:
+              if relative_path in skipped:
+                  continue
+
+              path = Path(relative_path)
+
+              try:
+                  text = path.read_text(
+                      encoding="utf-8-sig",
+                      errors="ignore",
+                  )
+              except OSError:
+                  continue
+
+              for label, pattern in patterns.items():
+                  for match in pattern.finditer(text):
+                      line = text.count("\n", 0, match.start()) + 1
+                      findings.append(
+                          f"{relative_path}:{line}: {label}"
+                      )
+
+          if findings:
+              print("Potential secrets detected:", file=sys.stderr)
+              for finding in findings:
+                  print(f"- {finding}", file=sys.stderr)
+              sys.exit(1)
+
+          print("No obvious credential patterns were detected.")
