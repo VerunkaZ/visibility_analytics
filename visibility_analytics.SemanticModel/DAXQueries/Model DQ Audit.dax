@@ -1,0 +1,137 @@
+DEFINE
+    VAR _MonthlyDuplicateGroups =
+        FILTER(
+            SUMMARIZE(
+                Monthly,
+                Monthly[Category],
+                Monthly[Metric],
+                Monthly[Value type],
+                Monthly[Data Source],
+                Monthly[Traffic Source],
+                Monthly[Month Start Date],
+                "Rows in group", CALCULATE(COUNTROWS(Monthly))
+            ),
+            [Rows in group] > 1
+        )
+
+    VAR _WeeklyDuplicateGroups =
+        FILTER(
+            SUMMARIZE(
+                Weekly,
+                Weekly[Category],
+                Weekly[Metric],
+                Weekly[Value type],
+                Weekly[Data Source],
+                Weekly[Traffic Source],
+                Weekly[Week Start Date],
+                "Rows in group", CALCULATE(COUNTROWS(Weekly))
+            ),
+            [Rows in group] > 1
+        )
+
+EVALUATE
+ROW(
+    "Monthly rows",
+        COUNTROWS(Monthly),
+
+    "Weekly rows",
+        COUNTROWS(Weekly),
+
+    "Monthly blank Value",
+        COUNTROWS(
+            FILTER(
+                Monthly,
+                ISBLANK(Monthly[Value])
+            )
+        ),
+
+    "Weekly blank Value",
+        COUNTROWS(
+            FILTER(
+                Weekly,
+                ISBLANK(Weekly[Value])
+            )
+        ),
+
+    "Monthly blank Value type",
+        COUNTROWS(
+            FILTER(
+                Monthly,
+                ISBLANK(Monthly[Value type])
+                    || TRIM(Monthly[Value type]) = ""
+            )
+        ),
+
+    "Weekly blank Value type",
+        COUNTROWS(
+            FILTER(
+                Weekly,
+                ISBLANK(Weekly[Value type])
+                    || TRIM(Weekly[Value type]) = ""
+            )
+        ),
+
+    "Monthly blank key rows",
+        COUNTROWS(
+            FILTER(
+                Monthly,
+                ISBLANK(Monthly[Category])
+                    || TRIM(Monthly[Category]) = ""
+                    || ISBLANK(Monthly[Metric])
+                    || TRIM(Monthly[Metric]) = ""
+                    || ISBLANK(Monthly[Month Start Date])
+            )
+        ),
+
+    "Weekly blank key rows",
+        COUNTROWS(
+            FILTER(
+                Weekly,
+                ISBLANK(Weekly[Category])
+                    || TRIM(Weekly[Category]) = ""
+                    || ISBLANK(Weekly[Metric])
+                    || TRIM(Weekly[Metric]) = ""
+                    || ISBLANK(Weekly[Week Start Date])
+            )
+        ),
+
+    "Monthly duplicate grain groups",
+        COUNTROWS(_MonthlyDuplicateGroups),
+
+    "Weekly duplicate grain groups",
+        COUNTROWS(_WeeklyDuplicateGroups),
+
+    "Monthly invalid month starts",
+        COUNTROWS(
+            FILTER(
+                Monthly,
+                DAY(Monthly[Month Start Date]) <> 1
+            )
+        ),
+
+    "Weekly non-Monday starts",
+        COUNTROWS(
+            FILTER(
+                Weekly,
+                WEEKDAY(Weekly[Week Start Date], 2) <> 1
+            )
+        ),
+
+    "Monthly periods",
+        DISTINCTCOUNT(Monthly[Month Start Date]),
+
+    "Weekly periods",
+        DISTINCTCOUNT(Weekly[Week Start Date]),
+
+    "Monthly first date",
+        MIN(Monthly[Month Start Date]),
+
+    "Monthly last date",
+        MAX(Monthly[Month Start Date]),
+
+    "Weekly first date",
+        MIN(Weekly[Week Start Date]),
+
+    "Weekly last date",
+        MAX(Weekly[Week Start Date])
+)

@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "234b7a41a0ec60089457",
   "position": {
-    "x": 279.56043956043959,
-    "y": 284.83516483516485,
-    "z": 19,
-    "height": 98.461538461538467,
-    "width": 291.86813186813185,
-    "tabOrder": 18
+    "x": 1568,
+    "y": 208,
+    "z": 13000,
+    "height": 112,
+    "width": 288,
+    "tabOrder": 13000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "_Measures.Monthly Digital Cost per TD Lead",
-              "nativeQueryRef": "Monthly Digital Cost per TD Lead"
+              "nativeQueryRef": "Digital Cost per TD Lead",
+              "displayName": "Digital Cost per TD Lead"
             }
           ]
         }
@@ -51,6 +52,24 @@
         "isDefaultSort": true
       }
     },
+    "objects": {
+      "label": [
+        {
+          "properties": {
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'belowValue'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ]
+    },
     "visualContainerObjects": {
       "title": [
         {
@@ -59,6 +78,52 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "lockAspect": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "4D"
                 }
               }
             }

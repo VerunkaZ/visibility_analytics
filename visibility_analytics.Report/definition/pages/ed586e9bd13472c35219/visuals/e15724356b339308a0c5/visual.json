@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
-  "name": "a70d49291e609b14a00c",
+  "name": "e15724356b339308a0c5",
   "position": {
-    "x": 1607.032967032967,
-    "y": 267.25274725274727,
-    "z": 3,
-    "height": 302.41758241758242,
-    "width": 253.1868131868132,
-    "tabOrder": 3
+    "x": 48,
+    "y": 590,
+    "z": 2000,
+    "height": 218,
+    "width": 896,
+    "tabOrder": 2000
   },
   "visual": {
-    "visualType": "lineChart",
+    "visualType": "clusteredColumnChart",
     "query": {
       "queryState": {
         "Category": {
@@ -20,19 +20,19 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Monthly"
+                      "Entity": "Dim Date"
                     }
                   },
                   "Property": "Month Start Date"
                 }
               },
-              "queryRef": "Monthly.Month Start Date",
+              "queryRef": "Dim Date.Month Start Date",
               "nativeQueryRef": "Month Start Date",
               "active": true
             }
           ]
         },
-        "Tooltips": {
+        "Y": {
           "projections": [
             {
               "field": {
@@ -42,11 +42,25 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Monthly Digital TD Media Cost"
+                  "Property": "Monthly Test Drive Leads"
                 }
               },
-              "queryRef": "_Measures.Monthly Digital TD Media Cost",
-              "nativeQueryRef": "Monthly Digital TD Media Cost"
+              "queryRef": "_Measures.Monthly Test Drive Leads",
+              "nativeQueryRef": "Monthly Test Drive Leads"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Monthly Sales Leads"
+                }
+              },
+              "queryRef": "_Measures.Monthly Sales Leads",
+              "nativeQueryRef": "Monthly Sales Leads"
             },
             {
               "field": {
@@ -63,24 +77,6 @@
               "nativeQueryRef": "Monthly Digital TD Leads"
             }
           ]
-        },
-        "Y": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Monthly Digital Cost per TD Lead"
-                }
-              },
-              "queryRef": "_Measures.Monthly Digital Cost per TD Lead",
-              "nativeQueryRef": "Monthly Digital Cost per TD Lead"
-            }
-          ]
         }
       },
       "sortDefinition": {
@@ -90,7 +86,7 @@
               "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Monthly"
+                    "Entity": "Dim Date"
                   }
                 },
                 "Property": "Month Start Date"
@@ -109,7 +105,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Monthly digital cost per TD lead'"
+                  "Value": "'Lead volumes'"
                 }
               }
             },
@@ -117,6 +113,19 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Volume comparison — not a confirmed funnel '"
                 }
               }
             }

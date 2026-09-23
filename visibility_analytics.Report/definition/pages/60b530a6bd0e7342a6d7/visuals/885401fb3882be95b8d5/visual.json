@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "885401fb3882be95b8d5",
   "position": {
-    "x": 1002.1978021978023,
-    "y": 254.94505494505495,
-    "z": 1,
-    "height": 328.79120879120882,
-    "width": 291.86813186813185,
-    "tabOrder": 1
+    "x": 952,
+    "y": 354,
+    "z": 1000,
+    "height": 218,
+    "width": 904,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "lineChart",
@@ -68,6 +68,48 @@
           }
         ]
       }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1000D"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "lineStyles": [
+        {
+          "properties": {
+            "showMarker": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "visualContainerObjects": {
       "title": [

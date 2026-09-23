@@ -1,7 +1,8 @@
 {
   "version": "1.0.0",
   "tabOrder": [
-    "Measures Audit"
+    "Measures Audit",
+    "Model DQ Audit"
   ],
-  "defaultTab": "Measures Audit"
+  "defaultTab": "Model DQ Audit"
 }

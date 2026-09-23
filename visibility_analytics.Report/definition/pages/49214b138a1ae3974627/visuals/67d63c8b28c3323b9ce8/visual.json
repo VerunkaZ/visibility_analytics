@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "67d63c8b28c3323b9ce8",
   "position": {
-    "x": 1510.3296703296703,
-    "y": 87.912087912087912,
-    "z": 12,
-    "height": 392.08791208791212,
-    "width": 409.67032967032969,
-    "tabOrder": 12
+    "x": 1381.633393829401,
+    "y": 97.568058076225043,
+    "z": 12000,
+    "height": 268.31215970961887,
+    "width": 374.59165154264974,
+    "tabOrder": 12000
   },
   "visual": {
     "visualType": "lineChart",
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "Dim Date.Week Start Date",
-              "nativeQueryRef": "Week Start Date"
+              "nativeQueryRef": "Week Start Date",
+              "active": true
             }
           ]
         },

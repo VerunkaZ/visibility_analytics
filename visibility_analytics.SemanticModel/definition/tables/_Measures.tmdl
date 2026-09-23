@@ -16,31 +16,35 @@ table _Measures
 	measure 'Monthly Media Cost' =
 			
 			CALCULATE ([Monthly Value], 'Dim Metric'[Metric] = "Media Cost")
-		formatString: 0
+		formatString: #,0
 		lineageTag: 88e1ff42-dd8d-4b18-bd37-21a94aee9f6c
 
 	measure 'Monthly Website Sessions' =
 			
 			CALCULATE ([Monthly Value], 'Dim Metric'[Metric] = "Website Sessions")
-		formatString: 0
+		formatString: #,0
 		lineageTag: e23e663e-05f0-4900-a62d-136f17c871f6
 
 	measure 'Monthly Test Drive Leads' =
 			
 			CALCULATE ( [Monthly Value], 'Dim Metric'[Metric] = "Test Drive Leads" )
-		formatString: 0
+		formatString: #,0
 		lineageTag: ae65c5c3-46ea-4ffd-91ce-8e019ff179f7
+
+		annotation PBI_FormatHint = {"isDecimal":true}
 
 	measure 'Monthly Sales Leads' =
 			
 			CALCULATE ( [Monthly Value], 'Dim Metric'[Metric] = "Sales Leads" )
-		formatString: 0
+		formatString: #,0
 		lineageTag: db9e2d4b-8c6b-4d9a-98a4-d01ee8619e53
+
+		annotation PBI_FormatHint = {"isDecimal":true}
 
 	measure 'Monthly Digital Cost per TD Lead' =
 			
 			DIVIDE([Monthly Digital TD Media Cost], [Monthly Digital TD Leads])
-		formatString: 0
+		formatString: 0.0
 		lineageTag: 87ebb1d6-5747-49eb-ae29-78e28c62b455
 
 	measure 'Monthly Digital TD Media Cost' =
@@ -53,9 +57,10 @@ table _Measures
 	measure 'Monthly Digital TD Leads' =
 			
 			CALCULATE([Monthly Value], 'Dim Category'[Category] = "Digital Test Drive", 'Dim Metric'[Metric] = "Test Drive Leads")
+		formatString: #,0
 		lineageTag: 58433fd6-019b-49bd-a95b-10ea667aa93c
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		annotation PBI_FormatHint = {"isDecimal":true}
 
 	measure 'Weekly Media Cost' = ```
 			

@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "9f832ec0b6d799aa1866",
   "position": {
-    "x": 666.37362637362639,
-    "y": 249.67032967032969,
+    "x": 48,
+    "y": 352,
     "z": 0,
-    "height": 334.06593406593407,
-    "width": 293.62637362637366,
+    "height": 218,
+    "width": 896,
     "tabOrder": 0
   },
   "visual": {
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "Dim Date.Month Start Date",
-              "nativeQueryRef": "Month Start Date"
+              "nativeQueryRef": "Month Start Date",
+              "active": true
             }
           ]
         },
@@ -105,51 +106,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "51025c00dce0a771170c",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dim Date"
-              }
-            },
-            "Property": "Month Start Date"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "88a2e6ed67e7e0c74e14",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Monthly Media Cost"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "5b8a44b1861bbd80a1e0",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Monthly Digital TD Media Cost"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

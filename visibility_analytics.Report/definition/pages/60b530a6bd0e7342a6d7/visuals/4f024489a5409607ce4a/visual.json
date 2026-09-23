@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "4f024489a5409607ce4a",
   "position": {
-    "x": 40.439560439560438,
-    "y": 249.67032967032969,
-    "z": 17,
-    "height": 35.164835164835168,
-    "width": 342.85714285714289,
-    "tabOrder": 16
+    "x": 1264,
+    "y": 184,
+    "z": 11000,
+    "height": 18,
+    "width": 608,
+    "tabOrder": 11000
   },
   "visual": {
     "visualType": "textbox",
@@ -19,18 +19,10 @@
               {
                 "textRuns": [
                   {
-                    "value": "DigitalTest drive -fixed segment",
+                    "value": "*Fixed segment - Digital Test Drive",
                     "textStyle": {
-                      "fontWeight": "bold",
-                      "fontSize": "14pt"
+                      "fontSize": "10pt"
                     }
-                  }
-                ]
-              },
-              {
-                "textRuns": [
-                  {
-                    "value": ""
                   }
                 ]
               }

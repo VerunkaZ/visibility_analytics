@@ -66,6 +66,8 @@ table Monthly
 		summarizeBy: none
 		sourceColumn: Month Start Date
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date

@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "34fc2a32372319c6c569",
   "position": {
-    "x": 54.505494505494511,
-    "y": 429.010989010989,
-    "z": 1,
-    "height": 154.72527472527474,
-    "width": 209.23076923076923,
-    "tabOrder": 1
+    "x": 48,
+    "y": 122,
+    "z": 1000,
+    "height": 58,
+    "width": 350,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "slicer",
@@ -20,35 +20,21 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Dim Date"
+                      "Entity": "Weekly"
                     }
                   },
-                  "Property": "Week Start Date"
+                  "Property": "Week Label"
                 }
               },
-              "queryRef": "Dim Date.Week Start Date",
-              "nativeQueryRef": "Week Start Date",
+              "queryRef": "Weekly.Week Label",
+              "nativeQueryRef": "Week Label",
               "active": true
             }
           ]
         }
       },
       "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Dim Date"
-                  }
-                },
-                "Property": "Week Start Date"
-              }
-            },
-            "direction": "Ascending"
-          }
-        ]
+        "isDefaultSort": true
       }
     },
     "objects": {
@@ -65,7 +51,7 @@
             "mode": {
               "expr": {
                 "Literal": {
-                  "Value": "'Between'"
+                  "Value": "'Dropdown'"
                 }
               }
             }
@@ -101,6 +87,13 @@
                   "Value": "true"
                 }
               }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Week'"
+                }
+              }
             }
           }
         }
@@ -124,7 +117,7 @@
             "strictSingleSelect": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             }
@@ -159,11 +152,6 @@
           }
         }
       ]
-    },
-    "syncGroup": {
-      "groupName": "Month Start Date",
-      "fieldChanges": true,
-      "filterChanges": true
     },
     "drillFilterOtherVisuals": true
   }

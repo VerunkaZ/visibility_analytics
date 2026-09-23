@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "eaac02a757a367a81709",
   "position": {
-    "x": 1311.6483516483518,
-    "y": 260.2197802197802,
-    "z": 2,
-    "height": 311.20879120879124,
-    "width": 270.76923076923077,
-    "tabOrder": 2
+    "x": 48,
+    "y": 590,
+    "z": 2000,
+    "height": 218,
+    "width": 896,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -61,6 +61,20 @@
               },
               "queryRef": "_Measures.Monthly Sales Leads",
               "nativeQueryRef": "Monthly Sales Leads"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Monthly Digital TD Leads"
+                }
+              },
+              "queryRef": "_Measures.Monthly Digital TD Leads",
+              "nativeQueryRef": "Monthly Digital TD Leads"
             }
           ]
         }
@@ -99,6 +113,19 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Volume comparison — not a confirmed funnel '"
                 }
               }
             }

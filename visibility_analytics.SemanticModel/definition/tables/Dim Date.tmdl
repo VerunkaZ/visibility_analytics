@@ -40,7 +40,7 @@ table 'Dim Date'
 
 	column 'Month Start Date'
 		dataType: dateTime
-		formatString: Long Date
+		formatString: dd.mm.yyyy
 		lineageTag: 494871cd-feff-4b82-b36c-1eb91d80e990
 		summarizeBy: none
 		sourceColumn: Month Start Date
@@ -48,6 +48,8 @@ table 'Dim Date'
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
 
 	column 'Week Start Date'
 		dataType: dateTime
