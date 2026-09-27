@@ -20,35 +20,20 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Dim Date"
+                      "Entity": "Weekly"
                     }
                   },
-                  "Property": "Month Start Date"
+                  "Property": "Week Label"
                 }
               },
-              "queryRef": "Dim Date.Month Start Date",
-              "nativeQueryRef": "Month Start Date",
+              "queryRef": "Weekly.Week Label",
+              "nativeQueryRef": "Week Label",
               "active": true
             }
           ]
         }
       },
       "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Dim Date"
-                  }
-                },
-                "Property": "Month Start Date"
-              }
-            },
-            "direction": "Ascending"
-          }
-        ],
         "isDefaultSort": true
       }
     },
@@ -120,7 +105,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Month'"
+                  "Value": "'Week'"
                 }
               }
             },
@@ -216,9 +201,8 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 2,
-                      "Percent": 0
+                    "Literal": {
+                      "Value": "'#ACF1F2'"
                     }
                   }
                 }
@@ -227,7 +211,7 @@
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "81D"
+                  "Value": "0D"
                 }
               }
             }

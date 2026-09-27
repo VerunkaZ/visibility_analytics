@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "e585e9d358e60479e7be",
   "position": {
-    "x": 44,
-    "y": 812,
+    "x": 48.377952755905511,
+    "y": 790.67716535433067,
     "z": 3000,
-    "height": 268,
-    "width": 1800,
+    "height": 269.10236220472439,
+    "width": 1814.1732283464567,
     "tabOrder": 3000
   },
   "visual": {
@@ -37,11 +37,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Monthly Media Cost"
+                  "Property": "Weekly Media Cost"
                 }
               },
-              "queryRef": "_Measures.Monthly Media Cost",
-              "nativeQueryRef": "Monthly Media Cost"
+              "queryRef": "_Measures.Weekly Media Cost",
+              "nativeQueryRef": "Media cost",
+              "displayName": "Media cost"
             },
             {
               "field": {
@@ -51,11 +52,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Monthly Website Sessions"
+                  "Property": "Weekly Website Sessions"
                 }
               },
-              "queryRef": "_Measures.Monthly Website Sessions",
-              "nativeQueryRef": "Monthly Website Sessions"
+              "queryRef": "_Measures.Weekly Website Sessions",
+              "nativeQueryRef": "Website sessions",
+              "displayName": "Website sessions"
             },
             {
               "field": {
@@ -65,11 +67,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Monthly Test Drive Leads"
+                  "Property": "Weekly Test Drive Leads"
                 }
               },
-              "queryRef": "_Measures.Monthly Test Drive Leads",
-              "nativeQueryRef": "Monthly Test Drive Leads"
+              "queryRef": "_Measures.Weekly Test Drive Leads",
+              "nativeQueryRef": "Test drive leads",
+              "displayName": "Test drive leads"
             },
             {
               "field": {
@@ -79,11 +82,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Monthly Sales Leads"
+                  "Property": "Weekly Sales Leads"
                 }
               },
-              "queryRef": "_Measures.Monthly Sales Leads",
-              "nativeQueryRef": "Monthly Sales Leads"
+              "queryRef": "_Measures.Weekly Sales Leads",
+              "nativeQueryRef": "Sales leads",
+              "displayName": "Sales leads"
             }
           ]
         }
@@ -98,10 +102,10 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Monthly Website Sessions"
+                "Property": "Weekly Media Cost"
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ]
       }
@@ -109,27 +113,12 @@
     "objects": {
       "values": [
         {
-          "properties": {
-            "wordWrap": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
+          "properties": {}
         }
       ],
       "grid": [
         {
           "properties": {
-            "gridHorizontal": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
             "gridVertical": {
               "expr": {
                 "Literal": {
@@ -155,18 +144,6 @@
                   "Value": "1D"
                 }
               }
-            },
-            "gridHorizontalColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": -0.1
-                    }
-                  }
-                }
-              }
             }
           }
         }
@@ -178,11 +155,31 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 2,
-                      "Percent": 0.6
+                    "Literal": {
+                      "Value": "'#ACF1F2'"
                     }
                   }
+                }
+              }
+            },
+            "columnAdjustment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'fixedWidth'"
+                }
+              }
+            },
+            "defaultColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "353D"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
                 }
               }
             }
@@ -195,91 +192,14 @@
             "alignment": {
               "expr": {
                 "Literal": {
-                  "Value": "'Right'"
-                }
-              }
-            },
-            "styleTotal": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_Measures.Monthly Media Cost"
-          }
-        },
-        {
-          "properties": {
-            "styleTotal": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "alignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Right'"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_Measures.Monthly Website Sessions"
-          }
-        },
-        {
-          "properties": {
-            "styleTotal": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "alignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Right'"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_Measures.Monthly Test Drive Leads"
-          }
-        },
-        {
-          "properties": {
-            "styleTotal": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "alignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Right'"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "_Measures.Monthly Sales Leads"
-          }
-        },
-        {
-          "properties": {
-            "alignment": {
-              "expr": {
-                "Literal": {
                   "Value": "'Left'"
+                }
+              }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
@@ -298,13 +218,6 @@
               "expr": {
                 "Literal": {
                   "Value": "'Category detail'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "16D"
                 }
               }
             },
@@ -333,23 +246,16 @@
       ],
       "border": [
         {
+          "properties": {}
+        }
+      ],
+      "stylePreset": [
+        {
           "properties": {
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": -0.2
-                    }
-                  }
-                }
-              }
-            },
-            "width": {
+            "name": {
               "expr": {
                 "Literal": {
-                  "Value": "2D"
+                  "Value": "'Minimal'"
                 }
               }
             }

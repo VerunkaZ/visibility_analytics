@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "343b470f383084224a7d",
   "position": {
-    "x": 952,
-    "y": 354,
+    "x": 952.77483190198859,
+    "y": 327.56486796232633,
     "z": 1000,
     "height": 218,
     "width": 904,
@@ -23,11 +23,11 @@
                       "Entity": "Dim Date"
                     }
                   },
-                  "Property": "Month Start Date"
+                  "Property": "Week Start Date"
                 }
               },
-              "queryRef": "Dim Date.Month Start Date",
-              "nativeQueryRef": "Month Start Date",
+              "queryRef": "Dim Date.Week Start Date",
+              "nativeQueryRef": "Week Start Date",
               "active": true
             }
           ]
@@ -42,11 +42,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Monthly Website Sessions"
+                  "Property": "Weekly Website Sessions"
                 }
               },
-              "queryRef": "_Measures.Monthly Website Sessions",
-              "nativeQueryRef": "Monthly Website Sessions"
+              "queryRef": "_Measures.Weekly Website Sessions",
+              "nativeQueryRef": "Weekly Website Sessions"
             }
           ]
         }
@@ -61,12 +61,13 @@
                     "Entity": "Dim Date"
                   }
                 },
-                "Property": "Month Start Date"
+                "Property": "Week Start Date"
               }
             },
             "direction": "Ascending"
           }
-        ]
+        ],
+        "isDefaultSort": true
       }
     },
     "objects": {
@@ -106,6 +107,28 @@
                   "Value": "true"
                 }
               }
+            },
+            "strokeColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#38EDF0'"
+                    }
+                  }
+                }
+              }
+            },
+            "markerColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#38EDF0'"
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -118,11 +141,24 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Website sessions trend'"
+                  "Value": "'Website sessions'"
                 }
               }
             },
             "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "lockAspect": [
+        {
+          "properties": {
+            "show": {
               "expr": {
                 "Literal": {
                   "Value": "true"

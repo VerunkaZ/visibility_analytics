@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "a7d91e4974ec14d9bb78",
   "position": {
-    "x": 659,
+    "x": 656,
     "y": 208,
-    "z": 9000,
+    "z": 8000,
     "height": 112,
     "width": 288,
-    "tabOrder": 9000
+    "tabOrder": 8000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -27,8 +27,8 @@
                 }
               },
               "queryRef": "_Measures.Monthly Test Drive Leads",
-              "nativeQueryRef": "Test Drive Leads",
-              "displayName": "Test Drive Leads"
+              "nativeQueryRef": "Test drive leads",
+              "displayName": "Test drive leads"
             }
           ]
         }
@@ -147,6 +147,17 @@
               "expr": {
                 "Literal": {
                   "Value": "4D"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#D9E1E8'"
+                    }
+                  }
                 }
               }
             }

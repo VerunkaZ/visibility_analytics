@@ -4,10 +4,10 @@
   "position": {
     "x": 1568,
     "y": 208,
-    "z": 13000,
+    "z": 12000,
     "height": 112,
     "width": 288,
-    "tabOrder": 13000
+    "tabOrder": 12000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -27,8 +27,8 @@
                 }
               },
               "queryRef": "_Measures.Monthly Digital Cost per TD Lead",
-              "nativeQueryRef": "Digital Cost per TD Lead",
-              "displayName": "Digital Cost per TD Lead"
+              "nativeQueryRef": "Digital cost per lead",
+              "displayName": "Digital cost per lead"
             }
           ]
         }
@@ -124,6 +124,17 @@
               "expr": {
                 "Literal": {
                   "Value": "4D"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#D9E1E8'"
+                    }
+                  }
                 }
               }
             }

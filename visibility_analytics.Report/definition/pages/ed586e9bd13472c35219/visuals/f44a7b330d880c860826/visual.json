@@ -23,10 +23,10 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Monthly Digital Cost per TD Lead"
+                  "Property": "Weekly Digital Cost per TD Lead"
                 }
               },
-              "queryRef": "_Measures.Monthly Digital Cost per TD Lead",
+              "queryRef": "_Measures.Weekly Digital Cost per TD Lead",
               "nativeQueryRef": "Digital Cost per TD Lead",
               "displayName": "Digital Cost per TD Lead"
             }
@@ -43,7 +43,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Monthly Digital Cost per TD Lead"
+                "Property": "Weekly Digital Cost per TD Lead"
               }
             },
             "direction": "Descending"
@@ -66,6 +66,43 @@
           },
           "selector": {
             "id": "default"
+          }
+        },
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Digital cost per lead'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Weekly Digital Cost per TD Lead"
+          }
+        }
+      ],
+      "value": [
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "1L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Weekly Digital Cost per TD Lead"
           }
         }
       ]
@@ -124,6 +161,17 @@
               "expr": {
                 "Literal": {
                   "Value": "4D"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#D9E1E8'"
+                    }
+                  }
                 }
               }
             }

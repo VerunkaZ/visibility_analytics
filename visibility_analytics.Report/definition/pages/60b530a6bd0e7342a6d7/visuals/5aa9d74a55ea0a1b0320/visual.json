@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "5aa9d74a55ea0a1b0320",
   "position": {
-    "x": 1274.7107438016531,
+    "x": 1264,
     "y": 208,
-    "z": 12000,
+    "z": 11000,
     "height": 112,
     "width": 288,
-    "tabOrder": 12000
+    "tabOrder": 11000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -27,8 +27,8 @@
                 }
               },
               "queryRef": "_Measures.Monthly Digital TD Leads",
-              "nativeQueryRef": "Digital TD Leads",
-              "displayName": "Digital TD Leads"
+              "nativeQueryRef": "Digital test drive leads",
+              "displayName": "Digital test drive leads"
             }
           ]
         }
@@ -147,6 +147,17 @@
               "expr": {
                 "Literal": {
                   "Value": "4D"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#D9E1E8'"
+                    }
+                  }
                 }
               }
             }

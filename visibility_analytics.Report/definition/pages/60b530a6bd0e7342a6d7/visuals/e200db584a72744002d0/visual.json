@@ -4,10 +4,10 @@
   "position": {
     "x": 48,
     "y": 208,
-    "z": 7000,
+    "z": 6000,
     "height": 112,
     "width": 288,
-    "tabOrder": 7000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "card",
@@ -27,8 +27,8 @@
                 }
               },
               "queryRef": "_Measures.Monthly Media Cost",
-              "nativeQueryRef": "Media Cost",
-              "displayName": "Media Cost"
+              "nativeQueryRef": "Media cost",
+              "displayName": "Media cost"
             }
           ]
         }
@@ -135,6 +135,17 @@
               "expr": {
                 "Literal": {
                   "Value": "4D"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#D9E1E8'"
+                    }
+                  }
                 }
               }
             }

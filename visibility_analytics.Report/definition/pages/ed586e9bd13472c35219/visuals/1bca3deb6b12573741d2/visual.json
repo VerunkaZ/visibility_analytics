@@ -23,12 +23,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Monthly Media Cost"
+                  "Property": "Weekly Media Cost"
                 }
               },
-              "queryRef": "_Measures.Monthly Media Cost",
-              "nativeQueryRef": "Media Cost",
-              "displayName": "Media Cost"
+              "queryRef": "_Measures.Weekly Media Cost",
+              "nativeQueryRef": "Media cost",
+              "displayName": "Media cost"
             }
           ]
         }
@@ -43,7 +43,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Monthly Media Cost"
+                "Property": "Weekly Media Cost"
               }
             },
             "direction": "Descending"
@@ -135,6 +135,17 @@
               "expr": {
                 "Literal": {
                   "Value": "4D"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#D9E1E8'"
+                    }
+                  }
                 }
               }
             }

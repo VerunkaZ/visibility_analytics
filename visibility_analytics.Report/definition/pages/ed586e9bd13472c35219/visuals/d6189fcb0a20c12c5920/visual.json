@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Monthly overview",
+                    "value": "Weekly Overview",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontSize": "24pt"
@@ -30,7 +30,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Monthly performance | January-July 2026",
+                    "value": "Weekly performance |  13 July - 9 August 2026",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontSize": "18pt"

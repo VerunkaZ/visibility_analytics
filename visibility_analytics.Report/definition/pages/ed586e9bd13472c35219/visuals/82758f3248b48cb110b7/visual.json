@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "82758f3248b48cb110b7",
   "position": {
-    "x": 48,
-    "y": 352,
+    "x": 48.774831901988605,
+    "y": 325.56486796232633,
     "z": 0,
     "height": 218,
     "width": 896,
@@ -23,11 +23,11 @@
                       "Entity": "Dim Date"
                     }
                   },
-                  "Property": "Month Start Date"
+                  "Property": "Week Start Date"
                 }
               },
-              "queryRef": "Dim Date.Month Start Date",
-              "nativeQueryRef": "Month Start Date",
+              "queryRef": "Dim Date.Week Start Date",
+              "nativeQueryRef": "Week Start Date",
               "active": true
             }
           ]
@@ -42,11 +42,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Monthly Media Cost"
+                  "Property": "Weekly Media Cost"
                 }
               },
-              "queryRef": "_Measures.Monthly Media Cost",
-              "nativeQueryRef": "Monthly Media Cost"
+              "queryRef": "_Measures.Weekly Media Cost",
+              "nativeQueryRef": "Weekly Media Cost"
             },
             {
               "field": {
@@ -56,11 +56,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Monthly Digital TD Media Cost"
+                  "Property": "Weekly Digital TD Media Cost"
                 }
               },
-              "queryRef": "_Measures.Monthly Digital TD Media Cost",
-              "nativeQueryRef": "Monthly Digital TD Media Cost"
+              "queryRef": "_Measures.Weekly Digital TD Media Cost",
+              "nativeQueryRef": "Weekly Digital TD Media Cost"
             }
           ]
         }
@@ -75,13 +75,54 @@
                     "Entity": "Dim Date"
                   }
                 },
-                "Property": "Month Start Date"
+                "Property": "Week Start Date"
               }
             },
             "direction": "Ascending"
           }
-        ]
+        ],
+        "isDefaultSort": true
       }
+    },
+    "objects": {
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#38EDF0'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Weekly Media Cost"
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#D22D8D'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Weekly Digital TD Media Cost"
+          }
+        }
+      ]
     },
     "visualContainerObjects": {
       "title": [
@@ -90,7 +131,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Media Cost Trend'"
+                  "Value": "'Media cost trend'"
                 }
               }
             },
@@ -98,6 +139,37 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "lockAspect": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
                 }
               }
             }

@@ -4,10 +4,10 @@
   "position": {
     "x": 960,
     "y": 208,
-    "z": 10000,
+    "z": 9000,
     "height": 112,
     "width": 288,
-    "tabOrder": 10000
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -27,8 +27,8 @@
                 }
               },
               "queryRef": "_Measures.Monthly Sales Leads",
-              "nativeQueryRef": "Sales Leads",
-              "displayName": "Sales Leads"
+              "nativeQueryRef": "Sales leads",
+              "displayName": "Sales leads"
             }
           ]
         }
@@ -147,6 +147,17 @@
               "expr": {
                 "Literal": {
                   "Value": "4D"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#D9E1E8'"
+                    }
+                  }
                 }
               }
             }

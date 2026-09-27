@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "9f832ec0b6d799aa1866",
   "position": {
-    "x": 48,
-    "y": 352,
+    "x": 48.449788700436315,
+    "y": 315.77924689364704,
     "z": 0,
     "height": 218,
     "width": 896,
@@ -90,7 +90,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Media Cost Trend'"
+                  "Value": "'Media cost trend'"
                 }
               }
             },

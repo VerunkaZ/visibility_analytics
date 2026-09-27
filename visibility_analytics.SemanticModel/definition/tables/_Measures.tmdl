@@ -74,9 +74,10 @@ table _Measures
 	measure 'Weekly Website Sessions' =
 			
 			CALCULATE ( [Weekly Value], 'Dim Metric'[Metric] = "Website Sessions" )
+		formatString: #,0
 		lineageTag: 0a08e09e-fb78-401c-8f76-e67064c28f2b
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		annotation PBI_FormatHint = {"isDecimal":true}
 
 	measure 'Weekly Digital TD Leads' = ```
 			
@@ -113,9 +114,10 @@ table _Measures
 	measure 'Weekly Test Drive Leads' =
 			
 			CALCULATE ( [Weekly Value], 'Dim Metric'[Metric] = "Test Drive Leads" )
+		formatString: #,0
 		lineageTag: f04d9778-309b-4b21-888d-4f23c2c0d7a1
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		annotation PBI_FormatHint = {"isDecimal":true}
 
 	column Placeholder
 		dataType: int64

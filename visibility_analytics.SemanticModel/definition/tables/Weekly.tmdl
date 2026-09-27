@@ -46,6 +46,9 @@ table Weekly
 		lineageTag: c458f612-d3e8-4fb1-87a9-23fd9d9ef679
 		summarizeBy: none
 		sourceColumn: Week Label
+		sortByColumn: 'Week Start Date'
+
+		changedProperty = SortByColumn
 
 		annotation SummarizationSetBy = Automatic
 

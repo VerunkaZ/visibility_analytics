@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "c6ee5f4dc16107ab2d6b",
   "position": {
-    "x": 44,
-    "y": 812,
-    "z": 4000,
-    "height": 268,
-    "width": 1800,
-    "tabOrder": 4000
+    "x": 46.866141732283459,
+    "y": 775.55905511811022,
+    "z": 3000,
+    "height": 294.8031496062992,
+    "width": 1809.6377952755904,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "tableEx",
@@ -41,7 +41,8 @@
                 }
               },
               "queryRef": "_Measures.Monthly Media Cost",
-              "nativeQueryRef": "Monthly Media Cost"
+              "nativeQueryRef": "Media cost",
+              "displayName": "Media cost"
             },
             {
               "field": {
@@ -55,7 +56,8 @@
                 }
               },
               "queryRef": "_Measures.Monthly Website Sessions",
-              "nativeQueryRef": "Monthly Website Sessions"
+              "nativeQueryRef": "Website sessions",
+              "displayName": "Website sessions"
             },
             {
               "field": {
@@ -69,7 +71,8 @@
                 }
               },
               "queryRef": "_Measures.Monthly Test Drive Leads",
-              "nativeQueryRef": "Monthly Test Drive Leads"
+              "nativeQueryRef": "Test drive leads",
+              "displayName": "Test drive leads"
             },
             {
               "field": {
@@ -83,7 +86,8 @@
                 }
               },
               "queryRef": "_Measures.Monthly Sales Leads",
-              "nativeQueryRef": "Monthly Sales Leads"
+              "nativeQueryRef": "Sales leads",
+              "displayName": "Sales leads"
             }
           ]
         }
@@ -98,10 +102,10 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Monthly Website Sessions"
+                "Property": "Monthly Media Cost"
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ]
       }
@@ -109,31 +113,16 @@
     "objects": {
       "values": [
         {
-          "properties": {
-            "wordWrap": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
+          "properties": {}
         }
       ],
       "grid": [
         {
           "properties": {
-            "gridHorizontal": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
             "gridVertical": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             },
@@ -143,20 +132,34 @@
                   "expr": {
                     "ThemeDataColor": {
                       "ColorId": 0,
-                      "Percent": -0.2
+                      "Percent": -0.1
                     }
                   }
+                }
+              }
+            },
+            "imageHeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "76D"
+                }
+              }
+            },
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "15D"
                 }
               }
             },
             "rowPadding": {
               "expr": {
                 "Literal": {
-                  "Value": "1D"
+                  "Value": "2D"
                 }
               }
             },
-            "gridHorizontalColor": {
+            "outlineColor": {
               "solid": {
                 "color": {
                   "expr": {
@@ -178,11 +181,31 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 2,
-                      "Percent": 0.6
+                    "Literal": {
+                      "Value": "'#DCE8F7'"
                     }
                   }
+                }
+              }
+            },
+            "columnAdjustment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'fixedWidth'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            },
+            "defaultColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "353D"
                 }
               }
             }
@@ -282,6 +305,20 @@
                   "Value": "'Left'"
                 }
               }
+            },
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
             }
           },
           "selector": {
@@ -298,13 +335,6 @@
               "expr": {
                 "Literal": {
                   "Value": "'Category detail'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "16D"
                 }
               }
             },
@@ -334,22 +364,35 @@
       "border": [
         {
           "properties": {
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 0,
-                      "Percent": -0.2
-                    }
-                  }
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             },
             "width": {
               "expr": {
                 "Literal": {
-                  "Value": "2D"
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "spacing": [
+        {
+          "properties": {}
+        }
+      ],
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Minimal'"
                 }
               }
             }

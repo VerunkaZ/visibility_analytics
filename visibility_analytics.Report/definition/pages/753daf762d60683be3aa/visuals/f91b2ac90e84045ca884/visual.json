@@ -104,6 +104,20 @@
           "selector": {
             "metadata": "Min(Monthly.Category)"
           }
+        },
+        {
+          "properties": {
+            "heading": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Normal'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
         }
       ],
       "border": [
@@ -113,6 +127,34 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "cardCalloutArea": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "backgroundFillColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": -0.1
+                    }
+                  }
                 }
               }
             }
@@ -191,7 +233,14 @@
             "width": {
               "expr": {
                 "Literal": {
-                  "Value": "2D"
+                  "Value": "1D"
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "4D"
                 }
               }
             }

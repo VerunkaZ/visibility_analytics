@@ -23,10 +23,10 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Monthly Website Sessions"
+                  "Property": "Weekly Website Sessions"
                 }
               },
-              "queryRef": "_Measures.Monthly Website Sessions",
+              "queryRef": "_Measures.Weekly Website Sessions",
               "nativeQueryRef": "Website Sessions",
               "displayName": "Website Sessions"
             }
@@ -43,7 +43,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Monthly Website Sessions"
+                "Property": "Weekly Website Sessions"
               }
             },
             "direction": "Descending"
@@ -67,6 +67,20 @@
           "selector": {
             "id": "default"
           }
+        },
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Website sessions'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Weekly Website Sessions"
+          }
         }
       ],
       "value": [
@@ -89,6 +103,27 @@
           },
           "selector": {
             "metadata": "_Measures.Monthly Website Sessions"
+          }
+        },
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Weekly Website Sessions"
           }
         }
       ]
@@ -147,6 +182,17 @@
               "expr": {
                 "Literal": {
                   "Value": "4D"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#D9E1E8'"
+                    }
+                  }
                 }
               }
             }

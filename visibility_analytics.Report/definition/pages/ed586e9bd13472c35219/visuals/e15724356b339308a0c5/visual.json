@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "e15724356b339308a0c5",
   "position": {
-    "x": 48,
-    "y": 590,
+    "x": 48.774831901988605,
+    "y": 563.56486796232639,
     "z": 2000,
     "height": 218,
     "width": 896,
@@ -23,11 +23,11 @@
                       "Entity": "Dim Date"
                     }
                   },
-                  "Property": "Month Start Date"
+                  "Property": "Week Start Date"
                 }
               },
-              "queryRef": "Dim Date.Month Start Date",
-              "nativeQueryRef": "Month Start Date",
+              "queryRef": "Dim Date.Week Start Date",
+              "nativeQueryRef": "Week Start Date",
               "active": true
             }
           ]
@@ -42,11 +42,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Monthly Test Drive Leads"
+                  "Property": "Weekly Test Drive Leads"
                 }
               },
-              "queryRef": "_Measures.Monthly Test Drive Leads",
-              "nativeQueryRef": "Monthly Test Drive Leads"
+              "queryRef": "_Measures.Weekly Test Drive Leads",
+              "nativeQueryRef": "Weekly Test Drive Leads"
             },
             {
               "field": {
@@ -56,11 +56,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Monthly Sales Leads"
+                  "Property": "Weekly Sales Leads"
                 }
               },
-              "queryRef": "_Measures.Monthly Sales Leads",
-              "nativeQueryRef": "Monthly Sales Leads"
+              "queryRef": "_Measures.Weekly Sales Leads",
+              "nativeQueryRef": "Weekly Sales Leads"
             },
             {
               "field": {
@@ -70,11 +70,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Monthly Digital TD Leads"
+                  "Property": "Weekly Digital TD Leads"
                 }
               },
-              "queryRef": "_Measures.Monthly Digital TD Leads",
-              "nativeQueryRef": "Monthly Digital TD Leads"
+              "queryRef": "_Measures.Weekly Digital TD Leads",
+              "nativeQueryRef": "Weekly Digital TD Leads"
             }
           ]
         }
@@ -89,7 +89,7 @@
                     "Entity": "Dim Date"
                   }
                 },
-                "Property": "Month Start Date"
+                "Property": "Week Start Date"
               }
             },
             "direction": "Ascending"
@@ -97,6 +97,65 @@
         ],
         "isDefaultSort": true
       }
+    },
+    "objects": {
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#38EDF0'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Weekly Test Drive Leads"
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#D22D8D'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Weekly Sales Leads"
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": -0.25
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Weekly Digital TD Leads"
+          }
+        }
+      ]
     },
     "visualContainerObjects": {
       "title": [
@@ -126,6 +185,19 @@
               "expr": {
                 "Literal": {
                   "Value": "'Volume comparison — not a confirmed funnel '"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "lockAspect": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }

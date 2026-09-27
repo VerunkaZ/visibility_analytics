@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "0134afda089c23c7e674",
   "position": {
-    "x": 952.44094488188966,
-    "y": 589.6062992125984,
+    "x": 953.21577678387825,
+    "y": 563.17116717492479,
     "z": 17000,
     "height": 218,
     "width": 904,
@@ -23,11 +23,11 @@
                       "Entity": "Dim Date"
                     }
                   },
-                  "Property": "Month Start Date"
+                  "Property": "Week Start Date"
                 }
               },
-              "queryRef": "Dim Date.Month Start Date",
-              "nativeQueryRef": "Month Start Date",
+              "queryRef": "Dim Date.Week Start Date",
+              "nativeQueryRef": "Week Start Date",
               "active": true
             }
           ]
@@ -42,11 +42,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Monthly Digital Cost per TD Lead"
+                  "Property": "Weekly Digital Cost per TD Lead"
                 }
               },
-              "queryRef": "_Measures.Monthly Digital Cost per TD Lead",
-              "nativeQueryRef": "Monthly Digital Cost per TD Lead"
+              "queryRef": "_Measures.Weekly Digital Cost per TD Lead",
+              "nativeQueryRef": "Weekly Digital Cost per TD Lead"
             }
           ]
         }
@@ -61,12 +61,13 @@
                     "Entity": "Dim Date"
                   }
                 },
-                "Property": "Month Start Date"
+                "Property": "Week Start Date"
               }
             },
             "direction": "Ascending"
           }
-        ]
+        ],
+        "isDefaultSort": true
       }
     },
     "objects": {
@@ -104,6 +105,28 @@
               "expr": {
                 "Literal": {
                   "Value": "true"
+                }
+              }
+            },
+            "strokeColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#38EDF0'"
+                    }
+                  }
+                }
+              }
+            },
+            "markerColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#38EDF0'"
+                    }
+                  }
                 }
               }
             }
@@ -169,7 +192,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Monthly digital cost per TD lead'"
+                  "Value": "'Digital cost per lead'"
                 }
               }
             },
@@ -197,6 +220,19 @@
         }
       ],
       "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "lockAspect": [
         {
           "properties": {
             "show": {

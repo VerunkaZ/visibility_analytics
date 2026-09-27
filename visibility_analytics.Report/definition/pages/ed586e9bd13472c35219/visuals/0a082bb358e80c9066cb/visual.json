@@ -23,10 +23,10 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Monthly Sales Leads"
+                  "Property": "Weekly Sales Leads"
                 }
               },
-              "queryRef": "_Measures.Monthly Sales Leads",
+              "queryRef": "_Measures.Weekly Sales Leads",
               "nativeQueryRef": "Sales Leads",
               "displayName": "Sales Leads"
             }
@@ -43,7 +43,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Monthly Sales Leads"
+                "Property": "Weekly Sales Leads"
               }
             },
             "direction": "Descending"
@@ -67,6 +67,20 @@
           "selector": {
             "id": "default"
           }
+        },
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Sales leads'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Weekly Sales Leads"
+          }
         }
       ],
       "value": [
@@ -89,6 +103,27 @@
           },
           "selector": {
             "metadata": "_Measures.Monthly Sales Leads"
+          }
+        },
+        {
+          "properties": {
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Weekly Sales Leads"
           }
         }
       ]
@@ -147,6 +182,17 @@
               "expr": {
                 "Literal": {
                   "Value": "4D"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#D9E1E8'"
+                    }
+                  }
                 }
               }
             }

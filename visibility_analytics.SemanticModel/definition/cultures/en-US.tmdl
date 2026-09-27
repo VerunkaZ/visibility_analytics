@@ -3235,7 +3235,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Digital Cost per TD Lead": {
+			          "Digital cost per lead": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -3516,6 +3516,16 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "Digital test drive leads": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -4191,6 +4201,16 @@ cultureInfo en-US
 			          "weekly digital cost per TD lead": {
 			            "State": "Generated"
 			          }
+			        },
+			        {
+			          "Digital Cost per TD Lead": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -4330,127 +4350,7 @@ cultureInfo en-US
 			    }
 			  },
 			  "Relationships": {
-			    "monthly_is_expensive": {
-			      "Binding": {
-			        "ConceptualEntity": "Monthly"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "monthly": {
-			          "Target": {
-			            "Entity": "monthly"
-			          }
-			        },
-			        "entity__measure.monthly_media_cost": {
-			          "Target": {
-			            "Entity": "entity__measure.monthly_media_cost"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Adjective": {
-			            "Subject": {
-			              "Role": "monthly"
-			            },
-			            "Adjectives": [
-			              {
-			                "expensive": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Antonyms": [
-			              {
-			                "cheap": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Measurement": {
-			              "Role": "entity__measure.monthly_media_cost"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "monthly_media_cost_indicates_how_expensive_monthlies_are"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "monthly"
-			            },
-			            "Object": {
-			              "Role": "entity__measure.monthly_media_cost"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "monthlies_have_monthly_media_cost"
-			        }
-			      ]
-			    },
-			    "monthly_is_expensive1": {
-			      "Binding": {
-			        "ConceptualEntity": "Monthly"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "monthly": {
-			          "Target": {
-			            "Entity": "monthly"
-			          }
-			        },
-			        "entity__measure.monthly_digital_TD_media_cost": {
-			          "Target": {
-			            "Entity": "entity__measure.monthly_digital_TD_media_cost"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Adjective": {
-			            "Subject": {
-			              "Role": "monthly"
-			            },
-			            "Adjectives": [
-			              {
-			                "expensive": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Antonyms": [
-			              {
-			                "cheap": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Measurement": {
-			              "Role": "entity__measure.monthly_digital_TD_media_cost"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "monthly_digital_TD_media_cost_indicates_how_expensive_monthlies_are"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "monthly"
-			            },
-			            "Object": {
-			              "Role": "entity__measure.monthly_digital_TD_media_cost"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "monthlies_have_monthly_digital_TD_media_cost"
-			        }
-			      ]
-			    },
-			    "weekly_is_expensive": {
+			    "weekly_has_entity__measure_weekly_test_drive_leads": {
 			      "Binding": {
 			        "ConceptualEntity": "Weekly"
 			      },
@@ -4461,56 +4361,62 @@ cultureInfo en-US
 			            "Entity": "weekly"
 			          }
 			        },
-			        "entity__measure.weekly_media_cost": {
+			        "entity__measure.weekly_test_drive_leads": {
 			          "Target": {
-			            "Entity": "entity__measure.weekly_media_cost"
+			            "Entity": "entity__measure.weekly_test_drive_leads"
 			          }
 			        }
 			      },
 			      "Phrasings": [
-			        {
-			          "Adjective": {
-			            "Subject": {
-			              "Role": "weekly"
-			            },
-			            "Adjectives": [
-			              {
-			                "expensive": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Antonyms": [
-			              {
-			                "cheap": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Measurement": {
-			              "Role": "entity__measure.weekly_media_cost"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "weekly_media_cost_indicates_how_expensive_weeklies_are"
-			        },
 			        {
 			          "Attribute": {
 			            "Subject": {
 			              "Role": "weekly"
 			            },
 			            "Object": {
-			              "Role": "entity__measure.weekly_media_cost"
+			              "Role": "entity__measure.weekly_test_drive_leads"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "weeklies_have_weekly_media_cost"
+			          "ID": "weeklies_have_weekly_test_drive_leads"
 			        }
 			      ]
 			    },
-			    "weekly_is_expensive1": {
+			    "weekly_has_entity__measure_weekly_digital_cost_per_TD_lead": {
+			      "Binding": {
+			        "ConceptualEntity": "Weekly"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "weekly": {
+			          "Target": {
+			            "Entity": "weekly"
+			          }
+			        },
+			        "entity__measure.weekly_digital_cost_per_TD_lead": {
+			          "Target": {
+			            "Entity": "entity__measure.weekly_digital_cost_per_TD_lead"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "weekly"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.weekly_digital_cost_per_TD_lead"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "weeklies_have_weekly_digital_cost_per_TD_lead"
+			        }
+			      ]
+			    },
+			    "weekly_has_entity__measure_weekly_digital_TD_media_cost": {
 			      "Binding": {
 			        "ConceptualEntity": "Weekly"
 			      },
@@ -4528,6 +4434,19 @@ cultureInfo en-US
 			        }
 			      },
 			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "weekly"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.weekly_digital_TD_media_cost"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "weeklies_have_weekly_digital_TD_media_cost"
+			        },
 			        {
 			          "Adjective": {
 			            "Subject": {
@@ -4554,23 +4473,169 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "weekly_digital_TD_media_cost_indicates_how_expensive_weeklies_are"
+			        }
+			      ]
+			    },
+			    "weekly_has_entity__measure_weekly_sales_leads": {
+			      "Binding": {
+			        "ConceptualEntity": "Weekly"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "weekly": {
+			          "Target": {
+			            "Entity": "weekly"
+			          }
 			        },
+			        "entity__measure.weekly_sales_leads": {
+			          "Target": {
+			            "Entity": "entity__measure.weekly_sales_leads"
+			          }
+			        }
+			      },
+			      "Phrasings": [
 			        {
 			          "Attribute": {
 			            "Subject": {
 			              "Role": "weekly"
 			            },
 			            "Object": {
-			              "Role": "entity__measure.weekly_digital_TD_media_cost"
+			              "Role": "entity__measure.weekly_sales_leads"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "weeklies_have_weekly_digital_TD_media_cost"
+			          "ID": "weeklies_have_weekly_sales_leads"
 			        }
 			      ]
 			    },
-			    "monthly_is_traffic_source": {
+			    "weekly_has_entity__measure_weekly_digital_TD_leads": {
+			      "Binding": {
+			        "ConceptualEntity": "Weekly"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "weekly": {
+			          "Target": {
+			            "Entity": "weekly"
+			          }
+			        },
+			        "entity__measure.weekly_digital_TD_leads": {
+			          "Target": {
+			            "Entity": "entity__measure.weekly_digital_TD_leads"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "weekly"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.weekly_digital_TD_leads"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "weeklies_have_weekly_digital_TD_leads"
+			        }
+			      ]
+			    },
+			    "weekly_has_entity__measure_weekly_website_sessions": {
+			      "Binding": {
+			        "ConceptualEntity": "Weekly"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "weekly": {
+			          "Target": {
+			            "Entity": "weekly"
+			          }
+			        },
+			        "entity__measure.weekly_website_sessions": {
+			          "Target": {
+			            "Entity": "entity__measure.weekly_website_sessions"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "weekly"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.weekly_website_sessions"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "weeklies_have_weekly_website_sessions"
+			        }
+			      ]
+			    },
+			    "weekly_has_entity__measure_weekly_media_cost": {
+			      "Binding": {
+			        "ConceptualEntity": "Weekly"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "weekly": {
+			          "Target": {
+			            "Entity": "weekly"
+			          }
+			        },
+			        "entity__measure.weekly_media_cost": {
+			          "Target": {
+			            "Entity": "entity__measure.weekly_media_cost"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "weekly"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.weekly_media_cost"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "weeklies_have_weekly_media_cost"
+			        },
+			        {
+			          "Adjective": {
+			            "Subject": {
+			              "Role": "weekly"
+			            },
+			            "Adjectives": [
+			              {
+			                "expensive": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Antonyms": [
+			              {
+			                "cheap": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Measurement": {
+			              "Role": "entity__measure.weekly_media_cost"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "weekly_media_cost_indicates_how_expensive_weeklies_are"
+			        }
+			      ]
+			    },
+			    "monthly_has_entity__measure_monthly_digital_TD_leads": {
 			      "Binding": {
 			        "ConceptualEntity": "Monthly"
 			      },
@@ -4581,42 +4646,710 @@ cultureInfo en-US
 			            "Entity": "monthly"
 			          }
 			        },
-			        "monthly.traffic_source": {
+			        "entity__measure.monthly_digital_TD_leads": {
 			          "Target": {
-			            "Entity": "monthly.traffic_source"
+			            "Entity": "entity__measure.monthly_digital_TD_leads"
 			          }
 			        }
 			      },
 			      "Phrasings": [
-			        {
-			          "DynamicAdjective": {
-			            "Subject": {
-			              "Role": "monthly"
-			            },
-			            "Adjective": {
-			              "Role": "monthly.traffic_source"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "traffic_sources_describe_monthlies"
-			        },
 			        {
 			          "Attribute": {
 			            "Subject": {
 			              "Role": "monthly"
 			            },
 			            "Object": {
-			              "Role": "monthly.traffic_source"
+			              "Role": "entity__measure.monthly_digital_TD_leads"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "monthlies_have_traffic_sources"
+			          "ID": "monthlies_have_monthly_digital_TD_leads"
 			        }
 			      ]
 			    },
-			    "weekly_is_traffic_source": {
+			    "monthly_has_entity__measure_monthly_digital_TD_media_cost": {
+			      "Binding": {
+			        "ConceptualEntity": "Monthly"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "monthly": {
+			          "Target": {
+			            "Entity": "monthly"
+			          }
+			        },
+			        "entity__measure.monthly_digital_TD_media_cost": {
+			          "Target": {
+			            "Entity": "entity__measure.monthly_digital_TD_media_cost"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "monthly"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.monthly_digital_TD_media_cost"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "monthlies_have_monthly_digital_TD_media_cost"
+			        },
+			        {
+			          "Adjective": {
+			            "Subject": {
+			              "Role": "monthly"
+			            },
+			            "Adjectives": [
+			              {
+			                "expensive": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Antonyms": [
+			              {
+			                "cheap": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Measurement": {
+			              "Role": "entity__measure.monthly_digital_TD_media_cost"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "monthly_digital_TD_media_cost_indicates_how_expensive_monthlies_are"
+			        }
+			      ]
+			    },
+			    "monthly_has_entity__measure_monthly_digital_cost_per_TD_lead": {
+			      "Binding": {
+			        "ConceptualEntity": "Monthly"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "monthly": {
+			          "Target": {
+			            "Entity": "monthly"
+			          }
+			        },
+			        "entity__measure.monthly_digital_cost_per_TD_lead": {
+			          "Target": {
+			            "Entity": "entity__measure.monthly_digital_cost_per_TD_lead"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "monthly"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.monthly_digital_cost_per_TD_lead"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "monthlies_have_monthly_digital_cost_per_TD_lead"
+			        }
+			      ]
+			    },
+			    "monthly_has_entity__measure_monthly_sales_leads": {
+			      "Binding": {
+			        "ConceptualEntity": "Monthly"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "monthly": {
+			          "Target": {
+			            "Entity": "monthly"
+			          }
+			        },
+			        "entity__measure.monthly_sales_leads": {
+			          "Target": {
+			            "Entity": "entity__measure.monthly_sales_leads"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "monthly"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.monthly_sales_leads"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "monthlies_have_monthly_sales_leads"
+			        }
+			      ]
+			    },
+			    "monthly_has_entity__measure_monthly_test_drive_leads": {
+			      "Binding": {
+			        "ConceptualEntity": "Monthly"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "monthly": {
+			          "Target": {
+			            "Entity": "monthly"
+			          }
+			        },
+			        "entity__measure.monthly_test_drive_leads": {
+			          "Target": {
+			            "Entity": "entity__measure.monthly_test_drive_leads"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "monthly"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.monthly_test_drive_leads"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "monthlies_have_monthly_test_drive_leads"
+			        }
+			      ]
+			    },
+			    "monthly_has_entity__measure_monthly_website_sessions": {
+			      "Binding": {
+			        "ConceptualEntity": "Monthly"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "monthly": {
+			          "Target": {
+			            "Entity": "monthly"
+			          }
+			        },
+			        "entity__measure.monthly_website_sessions": {
+			          "Target": {
+			            "Entity": "entity__measure.monthly_website_sessions"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "monthly"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.monthly_website_sessions"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "monthlies_have_monthly_website_sessions"
+			        }
+			      ]
+			    },
+			    "monthly_has_entity__measure_monthly_media_cost": {
+			      "Binding": {
+			        "ConceptualEntity": "Monthly"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "monthly": {
+			          "Target": {
+			            "Entity": "monthly"
+			          }
+			        },
+			        "entity__measure.monthly_media_cost": {
+			          "Target": {
+			            "Entity": "entity__measure.monthly_media_cost"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "monthly"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.monthly_media_cost"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "monthlies_have_monthly_media_cost"
+			        },
+			        {
+			          "Adjective": {
+			            "Subject": {
+			              "Role": "monthly"
+			            },
+			            "Adjectives": [
+			              {
+			                "expensive": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Antonyms": [
+			              {
+			                "cheap": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Measurement": {
+			              "Role": "entity__measure.monthly_media_cost"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "monthly_media_cost_indicates_how_expensive_monthlies_are"
+			        }
+			      ]
+			    },
+			    "weekly_has_entity__measure_weekly_value": {
+			      "Binding": {
+			        "ConceptualEntity": "Weekly"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "weekly": {
+			          "Target": {
+			            "Entity": "weekly"
+			          }
+			        },
+			        "entity__measure.weekly_value": {
+			          "Target": {
+			            "Entity": "entity__measure.weekly_value"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "weekly"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.weekly_value"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "weeklies_have_weekly_value"
+			        }
+			      ]
+			    },
+			    "monthly_has_entity__measure_monthly_value": {
+			      "Binding": {
+			        "ConceptualEntity": "Monthly"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "monthly": {
+			          "Target": {
+			            "Entity": "monthly"
+			          }
+			        },
+			        "entity__measure.monthly_value": {
+			          "Target": {
+			            "Entity": "entity__measure.monthly_value"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "monthly"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.monthly_value"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "monthlies_have_monthly_value"
+			        }
+			      ]
+			    },
+			    "dim_date_has_week_start_date": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim Date"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_date": {
+			          "Target": {
+			            "Entity": "dim_date"
+			          }
+			        },
+			        "dim_date.week_start_date": {
+			          "Target": {
+			            "Entity": "dim_date.week_start_date"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_date"
+			            },
+			            "Object": {
+			              "Role": "dim_date.week_start_date"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dates_have_week_start_dates"
+			        }
+			      ]
+			    },
+			    "dim_date_has_month_start_date": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim Date"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_date": {
+			          "Target": {
+			            "Entity": "dim_date"
+			          }
+			        },
+			        "dim_date.month_start_date": {
+			          "Target": {
+			            "Entity": "dim_date.month_start_date"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_date"
+			            },
+			            "Object": {
+			              "Role": "dim_date.month_start_date"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dates_have_month_start_dates"
+			        }
+			      ]
+			    },
+			    "dim_date_has_month": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim Date"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_date": {
+			          "Target": {
+			            "Entity": "dim_date"
+			          }
+			        },
+			        "dim_date.month": {
+			          "Target": {
+			            "Entity": "dim_date.month"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_date"
+			            },
+			            "Object": {
+			              "Role": "dim_date.month"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dates_have_months"
+			        }
+			      ]
+			    },
+			    "dim_date_has_month_number": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim Date"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_date": {
+			          "Target": {
+			            "Entity": "dim_date"
+			          }
+			        },
+			        "dim_date.month_number": {
+			          "Target": {
+			            "Entity": "dim_date.month_number"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_date"
+			            },
+			            "Object": {
+			              "Role": "dim_date.month_number"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dates_have_month_numbers"
+			        }
+			      ]
+			    },
+			    "dim_date_has_year": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim Date"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_date": {
+			          "Target": {
+			            "Entity": "dim_date"
+			          }
+			        },
+			        "dim_date.year": {
+			          "Target": {
+			            "Entity": "dim_date.year"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_date"
+			            },
+			            "Object": {
+			              "Role": "dim_date.year"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dates_have_years"
+			        }
+			      ]
+			    },
+			    "dim_date_has_date": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim Date"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_date": {
+			          "Target": {
+			            "Entity": "dim_date"
+			          }
+			        },
+			        "dim_date.date": {
+			          "Target": {
+			            "Entity": "dim_date.date"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_date"
+			            },
+			            "Object": {
+			              "Role": "dim_date.date"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dates_have_dates"
+			        }
+			      ]
+			    },
+			    "dim_metric_has_metric": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim Metric"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_metric": {
+			          "Target": {
+			            "Entity": "dim_metric"
+			          }
+			        },
+			        "dim_metric.metric": {
+			          "Target": {
+			            "Entity": "dim_metric.metric"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_metric"
+			            },
+			            "Object": {
+			              "Role": "dim_metric.metric"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_metrics_have_metrics"
+			        }
+			      ]
+			    },
+			    "dim_category_has_category": {
+			      "Binding": {
+			        "ConceptualEntity": "Dim Category"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_category": {
+			          "Target": {
+			            "Entity": "dim_category"
+			          }
+			        },
+			        "dim_category.category": {
+			          "Target": {
+			            "Entity": "dim_category.category"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_category"
+			            },
+			            "Object": {
+			              "Role": "dim_category.category"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_categories_have_categories"
+			        }
+			      ]
+			    },
+			    "weekly_has_week_start_date": {
+			      "Binding": {
+			        "ConceptualEntity": "Weekly"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "weekly": {
+			          "Target": {
+			            "Entity": "weekly"
+			          }
+			        },
+			        "weekly.week_start_date": {
+			          "Target": {
+			            "Entity": "weekly.week_start_date"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "weekly"
+			            },
+			            "Object": {
+			              "Role": "weekly.week_start_date"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "weeklies_have_week_start_dates"
+			        }
+			      ]
+			    },
+			    "weekly_has_value": {
+			      "Binding": {
+			        "ConceptualEntity": "Weekly"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "weekly": {
+			          "Target": {
+			            "Entity": "weekly"
+			          }
+			        },
+			        "weekly.value": {
+			          "Target": {
+			            "Entity": "weekly.value"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "weekly"
+			            },
+			            "Object": {
+			              "Role": "weekly.value"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "weeklies_have_values"
+			        }
+			      ]
+			    },
+			    "weekly_has_week_label": {
+			      "Binding": {
+			        "ConceptualEntity": "Weekly"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "weekly": {
+			          "Target": {
+			            "Entity": "weekly"
+			          }
+			        },
+			        "weekly.week_label": {
+			          "Target": {
+			            "Entity": "weekly.week_label"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "weekly"
+			            },
+			            "Object": {
+			              "Role": "weekly.week_label"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "weeklies_have_week_labels"
+			        }
+			      ]
+			    },
+			    "weekly_has_traffic_source": {
 			      "Binding": {
 			        "ConceptualEntity": "Weekly"
 			      },
@@ -4635,19 +5368,6 @@ cultureInfo en-US
 			      },
 			      "Phrasings": [
 			        {
-			          "DynamicAdjective": {
-			            "Subject": {
-			              "Role": "weekly"
-			            },
-			            "Adjective": {
-			              "Role": "weekly.traffic_source"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "traffic_sources_describe_weeklies"
-			        },
-			        {
 			          "Attribute": {
 			            "Subject": {
 			              "Role": "weekly"
@@ -4659,10 +5379,89 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "weeklies_have_traffic_sources"
+			        },
+			        {
+			          "DynamicAdjective": {
+			            "Subject": {
+			              "Role": "weekly"
+			            },
+			            "Adjective": {
+			              "Role": "weekly.traffic_source"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "traffic_sources_describe_weeklies"
 			        }
 			      ]
 			    },
-			    "monthly_is_started_on_month_start_date": {
+			    "weekly_has_data_source": {
+			      "Binding": {
+			        "ConceptualEntity": "Weekly"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "weekly": {
+			          "Target": {
+			            "Entity": "weekly"
+			          }
+			        },
+			        "weekly.data_source": {
+			          "Target": {
+			            "Entity": "weekly.data_source"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "weekly"
+			            },
+			            "Object": {
+			              "Role": "weekly.data_source"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "weeklies_have_data_sources"
+			        }
+			      ]
+			    },
+			    "weekly_has_value_type": {
+			      "Binding": {
+			        "ConceptualEntity": "Weekly"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "weekly": {
+			          "Target": {
+			            "Entity": "weekly"
+			          }
+			        },
+			        "weekly.value_type": {
+			          "Target": {
+			            "Entity": "weekly.value_type"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "weekly"
+			            },
+			            "Object": {
+			              "Role": "weekly.value_type"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "weeklies_have_value_types"
+			        }
+			      ]
+			    },
+			    "monthly_has_month_start_date": {
 			      "Binding": {
 			        "ConceptualEntity": "Monthly"
 			      },
@@ -4679,112 +5478,197 @@ cultureInfo en-US
 			          }
 			        }
 			      },
-			      "SemanticSlots": {
-			        "When": {
-			          "Role": "monthly.month_start_date"
-			        }
-			      },
 			      "Phrasings": [
 			        {
-			          "Verb": {
-			            "Verbs": [
-			              {
-			                "start": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
-			            "Object": {
+			          "Attribute": {
+			            "Subject": {
 			              "Role": "monthly"
+			            },
+			            "Object": {
+			              "Role": "monthly.month_start_date"
 			            }
 			          },
 			          "State": "Generated",
-			          "Weight": 0.9,
-			          "ID": "monthlies_are_started_on_month_start_dates"
+			          "Weight": 0.99,
+			          "ID": "monthlies_have_month_start_dates"
 			        }
 			      ]
 			    },
-			    "weekly_is_started_on_week_start_date": {
+			    "monthly_has_value": {
 			      "Binding": {
-			        "ConceptualEntity": "Weekly"
+			        "ConceptualEntity": "Monthly"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "weekly": {
+			        "monthly": {
 			          "Target": {
-			            "Entity": "weekly"
+			            "Entity": "monthly"
 			          }
 			        },
-			        "weekly.week_start_date": {
+			        "monthly.value": {
 			          "Target": {
-			            "Entity": "weekly.week_start_date"
+			            "Entity": "monthly.value"
 			          }
-			        }
-			      },
-			      "SemanticSlots": {
-			        "When": {
-			          "Role": "weekly.week_start_date"
 			        }
 			      },
 			      "Phrasings": [
 			        {
-			          "Verb": {
-			            "Verbs": [
-			              {
-			                "start": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "monthly"
+			            },
 			            "Object": {
-			              "Role": "weekly"
+			              "Role": "monthly.value"
 			            }
 			          },
 			          "State": "Generated",
-			          "Weight": 0.9,
-			          "ID": "weeklies_are_started_on_week_start_dates"
+			          "Weight": 0.99,
+			          "ID": "monthlies_have_values"
 			        }
 			      ]
 			    },
-			    "dim_date_is_started_on_month_start_date": {
+			    "monthly_has_month_label": {
 			      "Binding": {
-			        "ConceptualEntity": "Dim Date"
+			        "ConceptualEntity": "Monthly"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "dim_date": {
+			        "monthly": {
 			          "Target": {
-			            "Entity": "dim_date"
+			            "Entity": "monthly"
 			          }
 			        },
-			        "dim_date.month_start_date": {
+			        "monthly.month_label": {
 			          "Target": {
-			            "Entity": "dim_date.month_start_date"
+			            "Entity": "monthly.month_label"
 			          }
-			        }
-			      },
-			      "SemanticSlots": {
-			        "When": {
-			          "Role": "dim_date.month_start_date"
 			        }
 			      },
 			      "Phrasings": [
 			        {
-			          "Verb": {
-			            "Verbs": [
-			              {
-			                "start": {
-			                  "State": "Generated"
-			                }
-			              }
-			            ],
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "monthly"
+			            },
 			            "Object": {
-			              "Role": "dim_date"
+			              "Role": "monthly.month_label"
 			            }
 			          },
 			          "State": "Generated",
-			          "Weight": 0.9,
-			          "ID": "dim_dates_are_started_on_month_start_dates"
+			          "Weight": 0.99,
+			          "ID": "monthlies_have_month_labels"
+			        }
+			      ]
+			    },
+			    "monthly_has_traffic_source": {
+			      "Binding": {
+			        "ConceptualEntity": "Monthly"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "monthly": {
+			          "Target": {
+			            "Entity": "monthly"
+			          }
+			        },
+			        "monthly.traffic_source": {
+			          "Target": {
+			            "Entity": "monthly.traffic_source"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "monthly"
+			            },
+			            "Object": {
+			              "Role": "monthly.traffic_source"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "monthlies_have_traffic_sources"
+			        },
+			        {
+			          "DynamicAdjective": {
+			            "Subject": {
+			              "Role": "monthly"
+			            },
+			            "Adjective": {
+			              "Role": "monthly.traffic_source"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "traffic_sources_describe_monthlies"
+			        }
+			      ]
+			    },
+			    "monthly_has_data_source": {
+			      "Binding": {
+			        "ConceptualEntity": "Monthly"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "monthly": {
+			          "Target": {
+			            "Entity": "monthly"
+			          }
+			        },
+			        "monthly.data_source": {
+			          "Target": {
+			            "Entity": "monthly.data_source"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "monthly"
+			            },
+			            "Object": {
+			              "Role": "monthly.data_source"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "monthlies_have_data_sources"
+			        }
+			      ]
+			    },
+			    "monthly_has_value_type": {
+			      "Binding": {
+			        "ConceptualEntity": "Monthly"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "monthly": {
+			          "Target": {
+			            "Entity": "monthly"
+			          }
+			        },
+			        "monthly.value_type": {
+			          "Target": {
+			            "Entity": "monthly.value_type"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "monthly"
+			            },
+			            "Object": {
+			              "Role": "monthly.value_type"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "monthlies_have_value_types"
 			        }
 			      ]
 			    },
@@ -4830,535 +5714,7 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "monthly_has_value_type": {
-			      "Binding": {
-			        "ConceptualEntity": "Monthly"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "monthly": {
-			          "Target": {
-			            "Entity": "monthly"
-			          }
-			        },
-			        "monthly.value_type": {
-			          "Target": {
-			            "Entity": "monthly.value_type"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "monthly"
-			            },
-			            "Object": {
-			              "Role": "monthly.value_type"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "monthlies_have_value_types"
-			        }
-			      ]
-			    },
-			    "monthly_has_data_source": {
-			      "Binding": {
-			        "ConceptualEntity": "Monthly"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "monthly": {
-			          "Target": {
-			            "Entity": "monthly"
-			          }
-			        },
-			        "monthly.data_source": {
-			          "Target": {
-			            "Entity": "monthly.data_source"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "monthly"
-			            },
-			            "Object": {
-			              "Role": "monthly.data_source"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "monthlies_have_data_sources"
-			        }
-			      ]
-			    },
-			    "monthly_has_month_label": {
-			      "Binding": {
-			        "ConceptualEntity": "Monthly"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "monthly": {
-			          "Target": {
-			            "Entity": "monthly"
-			          }
-			        },
-			        "monthly.month_label": {
-			          "Target": {
-			            "Entity": "monthly.month_label"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "monthly"
-			            },
-			            "Object": {
-			              "Role": "monthly.month_label"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "monthlies_have_month_labels"
-			        }
-			      ]
-			    },
-			    "monthly_has_value": {
-			      "Binding": {
-			        "ConceptualEntity": "Monthly"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "monthly": {
-			          "Target": {
-			            "Entity": "monthly"
-			          }
-			        },
-			        "monthly.value": {
-			          "Target": {
-			            "Entity": "monthly.value"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "monthly"
-			            },
-			            "Object": {
-			              "Role": "monthly.value"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "monthlies_have_values"
-			        }
-			      ]
-			    },
-			    "monthly_has_month_start_date": {
-			      "Binding": {
-			        "ConceptualEntity": "Monthly"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "monthly": {
-			          "Target": {
-			            "Entity": "monthly"
-			          }
-			        },
-			        "monthly.month_start_date": {
-			          "Target": {
-			            "Entity": "monthly.month_start_date"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "monthly"
-			            },
-			            "Object": {
-			              "Role": "monthly.month_start_date"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "monthlies_have_month_start_dates"
-			        }
-			      ]
-			    },
-			    "weekly_has_value_type": {
-			      "Binding": {
-			        "ConceptualEntity": "Weekly"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "weekly": {
-			          "Target": {
-			            "Entity": "weekly"
-			          }
-			        },
-			        "weekly.value_type": {
-			          "Target": {
-			            "Entity": "weekly.value_type"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "weekly"
-			            },
-			            "Object": {
-			              "Role": "weekly.value_type"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "weeklies_have_value_types"
-			        }
-			      ]
-			    },
-			    "weekly_has_data_source": {
-			      "Binding": {
-			        "ConceptualEntity": "Weekly"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "weekly": {
-			          "Target": {
-			            "Entity": "weekly"
-			          }
-			        },
-			        "weekly.data_source": {
-			          "Target": {
-			            "Entity": "weekly.data_source"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "weekly"
-			            },
-			            "Object": {
-			              "Role": "weekly.data_source"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "weeklies_have_data_sources"
-			        }
-			      ]
-			    },
-			    "weekly_has_week_label": {
-			      "Binding": {
-			        "ConceptualEntity": "Weekly"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "weekly": {
-			          "Target": {
-			            "Entity": "weekly"
-			          }
-			        },
-			        "weekly.week_label": {
-			          "Target": {
-			            "Entity": "weekly.week_label"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "weekly"
-			            },
-			            "Object": {
-			              "Role": "weekly.week_label"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "weeklies_have_week_labels"
-			        }
-			      ]
-			    },
-			    "weekly_has_value": {
-			      "Binding": {
-			        "ConceptualEntity": "Weekly"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "weekly": {
-			          "Target": {
-			            "Entity": "weekly"
-			          }
-			        },
-			        "weekly.value": {
-			          "Target": {
-			            "Entity": "weekly.value"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "weekly"
-			            },
-			            "Object": {
-			              "Role": "weekly.value"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "weeklies_have_values"
-			        }
-			      ]
-			    },
-			    "weekly_has_week_start_date": {
-			      "Binding": {
-			        "ConceptualEntity": "Weekly"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "weekly": {
-			          "Target": {
-			            "Entity": "weekly"
-			          }
-			        },
-			        "weekly.week_start_date": {
-			          "Target": {
-			            "Entity": "weekly.week_start_date"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "weekly"
-			            },
-			            "Object": {
-			              "Role": "weekly.week_start_date"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "weeklies_have_week_start_dates"
-			        }
-			      ]
-			    },
-			    "dim_category_has_category": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim Category"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_category": {
-			          "Target": {
-			            "Entity": "dim_category"
-			          }
-			        },
-			        "dim_category.category": {
-			          "Target": {
-			            "Entity": "dim_category.category"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_category"
-			            },
-			            "Object": {
-			              "Role": "dim_category.category"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_categories_have_categories"
-			        }
-			      ]
-			    },
-			    "dim_metric_has_metric": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim Metric"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_metric": {
-			          "Target": {
-			            "Entity": "dim_metric"
-			          }
-			        },
-			        "dim_metric.metric": {
-			          "Target": {
-			            "Entity": "dim_metric.metric"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_metric"
-			            },
-			            "Object": {
-			              "Role": "dim_metric.metric"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_metrics_have_metrics"
-			        }
-			      ]
-			    },
-			    "dim_date_has_date": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim Date"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_date": {
-			          "Target": {
-			            "Entity": "dim_date"
-			          }
-			        },
-			        "dim_date.date": {
-			          "Target": {
-			            "Entity": "dim_date.date"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_date"
-			            },
-			            "Object": {
-			              "Role": "dim_date.date"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_dates_have_dates"
-			        }
-			      ]
-			    },
-			    "dim_date_has_year": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim Date"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_date": {
-			          "Target": {
-			            "Entity": "dim_date"
-			          }
-			        },
-			        "dim_date.year": {
-			          "Target": {
-			            "Entity": "dim_date.year"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_date"
-			            },
-			            "Object": {
-			              "Role": "dim_date.year"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_dates_have_years"
-			        }
-			      ]
-			    },
-			    "dim_date_has_month_number": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim Date"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_date": {
-			          "Target": {
-			            "Entity": "dim_date"
-			          }
-			        },
-			        "dim_date.month_number": {
-			          "Target": {
-			            "Entity": "dim_date.month_number"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_date"
-			            },
-			            "Object": {
-			              "Role": "dim_date.month_number"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_dates_have_month_numbers"
-			        }
-			      ]
-			    },
-			    "dim_date_has_month": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim Date"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_date": {
-			          "Target": {
-			            "Entity": "dim_date"
-			          }
-			        },
-			        "dim_date.month": {
-			          "Target": {
-			            "Entity": "dim_date.month"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_date"
-			            },
-			            "Object": {
-			              "Role": "dim_date.month"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_dates_have_months"
-			        }
-			      ]
-			    },
-			    "dim_date_has_month_start_date": {
+			    "dim_date_is_started_on_month_start_date": {
 			      "Binding": {
 			        "ConceptualEntity": "Dim Date"
 			      },
@@ -5375,89 +5731,32 @@ cultureInfo en-US
 			          }
 			        }
 			      },
+			      "SemanticSlots": {
+			        "When": {
+			          "Role": "dim_date.month_start_date"
+			        }
+			      },
 			      "Phrasings": [
 			        {
-			          "Attribute": {
-			            "Subject": {
+			          "Verb": {
+			            "Verbs": [
+			              {
+			                "start": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
 			              "Role": "dim_date"
-			            },
-			            "Object": {
-			              "Role": "dim_date.month_start_date"
 			            }
 			          },
 			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_dates_have_month_start_dates"
+			          "Weight": 0.9,
+			          "ID": "dim_dates_are_started_on_month_start_dates"
 			        }
 			      ]
 			    },
-			    "dim_date_has_week_start_date": {
-			      "Binding": {
-			        "ConceptualEntity": "Dim Date"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_date": {
-			          "Target": {
-			            "Entity": "dim_date"
-			          }
-			        },
-			        "dim_date.week_start_date": {
-			          "Target": {
-			            "Entity": "dim_date.week_start_date"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_date"
-			            },
-			            "Object": {
-			              "Role": "dim_date.week_start_date"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_dates_have_week_start_dates"
-			        }
-			      ]
-			    },
-			    "monthly_has_entity__measure_monthly_value": {
-			      "Binding": {
-			        "ConceptualEntity": "Monthly"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "monthly": {
-			          "Target": {
-			            "Entity": "monthly"
-			          }
-			        },
-			        "entity__measure.monthly_value": {
-			          "Target": {
-			            "Entity": "entity__measure.monthly_value"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "monthly"
-			            },
-			            "Object": {
-			              "Role": "entity__measure.monthly_value"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "monthlies_have_monthly_value"
-			        }
-			      ]
-			    },
-			    "weekly_has_entity__measure_weekly_value": {
+			    "weekly_is_started_on_week_start_date": {
 			      "Binding": {
 			        "ConceptualEntity": "Weekly"
 			      },
@@ -5468,29 +5767,38 @@ cultureInfo en-US
 			            "Entity": "weekly"
 			          }
 			        },
-			        "entity__measure.weekly_value": {
+			        "weekly.week_start_date": {
 			          "Target": {
-			            "Entity": "entity__measure.weekly_value"
+			            "Entity": "weekly.week_start_date"
 			          }
+			        }
+			      },
+			      "SemanticSlots": {
+			        "When": {
+			          "Role": "weekly.week_start_date"
 			        }
 			      },
 			      "Phrasings": [
 			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "weekly"
-			            },
+			          "Verb": {
+			            "Verbs": [
+			              {
+			                "start": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
 			            "Object": {
-			              "Role": "entity__measure.weekly_value"
+			              "Role": "weekly"
 			            }
 			          },
 			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "weeklies_have_weekly_value"
+			          "Weight": 0.9,
+			          "ID": "weeklies_are_started_on_week_start_dates"
 			        }
 			      ]
 			    },
-			    "monthly_has_entity__measure_monthly_website_sessions": {
+			    "monthly_is_started_on_month_start_date": {
 			      "Binding": {
 			        "ConceptualEntity": "Monthly"
 			      },
@@ -5501,322 +5809,34 @@ cultureInfo en-US
 			            "Entity": "monthly"
 			          }
 			        },
-			        "entity__measure.monthly_website_sessions": {
+			        "monthly.month_start_date": {
 			          "Target": {
-			            "Entity": "entity__measure.monthly_website_sessions"
+			            "Entity": "monthly.month_start_date"
 			          }
+			        }
+			      },
+			      "SemanticSlots": {
+			        "When": {
+			          "Role": "monthly.month_start_date"
 			        }
 			      },
 			      "Phrasings": [
 			        {
-			          "Attribute": {
-			            "Subject": {
+			          "Verb": {
+			            "Verbs": [
+			              {
+			                "start": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
 			              "Role": "monthly"
-			            },
-			            "Object": {
-			              "Role": "entity__measure.monthly_website_sessions"
 			            }
 			          },
 			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "monthlies_have_monthly_website_sessions"
-			        }
-			      ]
-			    },
-			    "monthly_has_entity__measure_monthly_test_drive_leads": {
-			      "Binding": {
-			        "ConceptualEntity": "Monthly"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "monthly": {
-			          "Target": {
-			            "Entity": "monthly"
-			          }
-			        },
-			        "entity__measure.monthly_test_drive_leads": {
-			          "Target": {
-			            "Entity": "entity__measure.monthly_test_drive_leads"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "monthly"
-			            },
-			            "Object": {
-			              "Role": "entity__measure.monthly_test_drive_leads"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "monthlies_have_monthly_test_drive_leads"
-			        }
-			      ]
-			    },
-			    "monthly_has_entity__measure_monthly_sales_leads": {
-			      "Binding": {
-			        "ConceptualEntity": "Monthly"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "monthly": {
-			          "Target": {
-			            "Entity": "monthly"
-			          }
-			        },
-			        "entity__measure.monthly_sales_leads": {
-			          "Target": {
-			            "Entity": "entity__measure.monthly_sales_leads"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "monthly"
-			            },
-			            "Object": {
-			              "Role": "entity__measure.monthly_sales_leads"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "monthlies_have_monthly_sales_leads"
-			        }
-			      ]
-			    },
-			    "monthly_has_entity__measure_monthly_digital_cost_per_TD_lead": {
-			      "Binding": {
-			        "ConceptualEntity": "Monthly"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "monthly": {
-			          "Target": {
-			            "Entity": "monthly"
-			          }
-			        },
-			        "entity__measure.monthly_digital_cost_per_TD_lead": {
-			          "Target": {
-			            "Entity": "entity__measure.monthly_digital_cost_per_TD_lead"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "monthly"
-			            },
-			            "Object": {
-			              "Role": "entity__measure.monthly_digital_cost_per_TD_lead"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "monthlies_have_monthly_digital_cost_per_TD_lead"
-			        }
-			      ]
-			    },
-			    "monthly_has_entity__measure_monthly_digital_TD_leads": {
-			      "Binding": {
-			        "ConceptualEntity": "Monthly"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "monthly": {
-			          "Target": {
-			            "Entity": "monthly"
-			          }
-			        },
-			        "entity__measure.monthly_digital_TD_leads": {
-			          "Target": {
-			            "Entity": "entity__measure.monthly_digital_TD_leads"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "monthly"
-			            },
-			            "Object": {
-			              "Role": "entity__measure.monthly_digital_TD_leads"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "monthlies_have_monthly_digital_TD_leads"
-			        }
-			      ]
-			    },
-			    "weekly_has_entity__measure_weekly_website_sessions": {
-			      "Binding": {
-			        "ConceptualEntity": "Weekly"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "weekly": {
-			          "Target": {
-			            "Entity": "weekly"
-			          }
-			        },
-			        "entity__measure.weekly_website_sessions": {
-			          "Target": {
-			            "Entity": "entity__measure.weekly_website_sessions"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "weekly"
-			            },
-			            "Object": {
-			              "Role": "entity__measure.weekly_website_sessions"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "weeklies_have_weekly_website_sessions"
-			        }
-			      ]
-			    },
-			    "weekly_has_entity__measure_weekly_digital_TD_leads": {
-			      "Binding": {
-			        "ConceptualEntity": "Weekly"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "weekly": {
-			          "Target": {
-			            "Entity": "weekly"
-			          }
-			        },
-			        "entity__measure.weekly_digital_TD_leads": {
-			          "Target": {
-			            "Entity": "entity__measure.weekly_digital_TD_leads"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "weekly"
-			            },
-			            "Object": {
-			              "Role": "entity__measure.weekly_digital_TD_leads"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "weeklies_have_weekly_digital_TD_leads"
-			        }
-			      ]
-			    },
-			    "weekly_has_entity__measure_weekly_sales_leads": {
-			      "Binding": {
-			        "ConceptualEntity": "Weekly"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "weekly": {
-			          "Target": {
-			            "Entity": "weekly"
-			          }
-			        },
-			        "entity__measure.weekly_sales_leads": {
-			          "Target": {
-			            "Entity": "entity__measure.weekly_sales_leads"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "weekly"
-			            },
-			            "Object": {
-			              "Role": "entity__measure.weekly_sales_leads"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "weeklies_have_weekly_sales_leads"
-			        }
-			      ]
-			    },
-			    "weekly_has_entity__measure_weekly_digital_cost_per_TD_lead": {
-			      "Binding": {
-			        "ConceptualEntity": "Weekly"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "weekly": {
-			          "Target": {
-			            "Entity": "weekly"
-			          }
-			        },
-			        "entity__measure.weekly_digital_cost_per_TD_lead": {
-			          "Target": {
-			            "Entity": "entity__measure.weekly_digital_cost_per_TD_lead"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "weekly"
-			            },
-			            "Object": {
-			              "Role": "entity__measure.weekly_digital_cost_per_TD_lead"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "weeklies_have_weekly_digital_cost_per_TD_lead"
-			        }
-			      ]
-			    },
-			    "weekly_has_entity__measure_weekly_test_drive_leads": {
-			      "Binding": {
-			        "ConceptualEntity": "Weekly"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "weekly": {
-			          "Target": {
-			            "Entity": "weekly"
-			          }
-			        },
-			        "entity__measure.weekly_test_drive_leads": {
-			          "Target": {
-			            "Entity": "entity__measure.weekly_test_drive_leads"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "weekly"
-			            },
-			            "Object": {
-			              "Role": "entity__measure.weekly_test_drive_leads"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "weeklies_have_weekly_test_drive_leads"
+			          "Weight": 0.9,
+			          "ID": "monthlies_are_started_on_month_start_dates"
 			        }
 			      ]
 			    },

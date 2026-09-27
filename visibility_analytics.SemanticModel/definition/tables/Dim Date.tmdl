@@ -53,7 +53,7 @@ table 'Dim Date'
 
 	column 'Week Start Date'
 		dataType: dateTime
-		formatString: Long Date
+		formatString: Short Date
 		lineageTag: b07cbab0-deb4-4734-834e-d22e57f127d7
 		summarizeBy: none
 		sourceColumn: Week Start Date
