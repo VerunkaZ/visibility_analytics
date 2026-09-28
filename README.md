@@ -1,5 +1,9 @@
 # Visibility Analytics — Power BI
 
+# Note: CURRENTLY WORKING ON README AND REPORT VISIBILITY! 
+## THE INFORMATIONS BELLOW MAY NOT YET MATCH WITH SEMANTIC CODE!!
+
+
 A Power BI reporting use case built as a source-control-friendly PBIP/TMDL project. The solution transforms separate monthly and weekly media datasets, models them at their native grains, and presents core media and lead-generation KPIs in an interactive dashboard.
 
 > **Project status:** Work in progress — the dashboard and model are implemented, while the final DAX, relationship, and data-quality audit is still pending.
