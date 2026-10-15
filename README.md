@@ -2,7 +2,7 @@
 
 ## Interactive dashboard
 
-[Open the interactive Power BI dashboard][(https://app.powerbi.com/reportEmbed?reportId=709d8770-bdf2-4afa-9181-fea09b0a871c&autoAuth=true&ctid=d4d87b02-5afb-418d-b1fe-1a5534e59fac&actionBarEnabled=true)]
+[Open the interactive Power BI dashboard](https://app.powerbi.com/reportEmbed?reportId=709d8770-bdf2-4afa-9181-fea09b0a871c&autoAuth=true&ctid=d4d87b02-5afb-418d-b1fe-1a5534e59fac&actionBarEnabled=true)
 
 Viewing the report requires signing in with an account that has access to it in Power BI.
 
