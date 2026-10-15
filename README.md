@@ -1,5 +1,11 @@
 # Visibility Analytics — Power BI
 
+## Interactive dashboard
+
+[Open the interactive Power BI dashboard](https://verunkaz.github.io/visibility_analytics/)
+
+Viewing the report requires signing in with an account that has access to it in Power BI.
+
 The project was created for a Reporting & Dashboard Specialist use case. Its objectives are to:
 
 - clean and reshape monthly and weekly source data in Power Query;
