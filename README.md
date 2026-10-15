@@ -9,6 +9,22 @@ The project was created for a Reporting & Dashboard Specialist use case. Its obj
 - present the results through KPI cards, trends, comparisons, slicers, and detail views;
 - keep the Power BI solution readable and suitable for Git-based version control.
 
+## Repository structure
+
+The project is stored in Power BI Project (PBIP) format, with separate report and semantic model definitions.
+
+| File or folder | Purpose |
+| --- | --- |
+| `visibility_analytics.pbip` | Entry point for opening the project in Power BI Desktop. |
+| `visibility_analytics.Report/` | Report definitions, including pages, visuals, layout and theme resources. |
+| `visibility_analytics.SemanticModel/` | Data model definitions in TMDL format, including tables, Power Query transformations, relationships and DAX measures. |
+| `visibility_analytics.SemanticModel/definition/tables/` | Definitions of `Monthly`, `Weekly`, the shared dimensions and the `_Measures` table. |
+| `visibility_analytics.SemanticModel/DAXQueries/` | Saved DAX queries. |
+| `docs/index.html` | Web page prepared for displaying the embedded Power BI report through GitHub Pages. |
+| `.github/workflows/pbip-ci.yml` | Automated checks for project structure, JSON syntax, file references, excluded files and common credential patterns. |
+| `.gitignore` | Excludes Power BI binaries, local cache and settings, and private export folders from version control. |
+| `README.md` | Project overview, scope, data notes and repository guide. |
+
 ## Data grain
 
 The model intentionally uses two fact tables rather than combining incompatible time grains.
@@ -92,25 +108,7 @@ SQL is not used in the documented solution. Transformations are implemented in P
 
 `Cost of TD Lead` is designed as the ratio of Digital Test Drive media cost to Test Drive Leads, using `DIVIDE` for safe division.
 
-## Repository structure
 
-```text
-visibility_analytics/
-├── <Power-BI-generated-name>.Report/
-├── <Power-BI-generated-name>.SemanticModel/
-├── visibility_analytics.pbip
-├── .gitignore
-└── README.md
-```
-
-Excluded from Git:
-
-- `*.pbix` and `*.pbit` files;
-- `**/.pbi/cache.abf`;
-- `**/.pbi/localSettings.json`;
-- credentials and local environment secrets;
-- private data exports.
- 
 
 ## License
 
